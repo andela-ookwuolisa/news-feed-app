@@ -25457,7 +25457,8 @@
 	var React = __webpack_require__(1);
 
 	var _require = __webpack_require__(159),
-	    Link = _require.Link;
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
 
 	var Nav = React.createClass({
 	  displayName: 'Nav',
@@ -25472,19 +25473,24 @@
 	        'Nav Component'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        IndexLink,
+	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: "bold" } },
 	        'Get News'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: 'about' },
+	        { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: "bold" } },
 	        'About'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: 'login' },
+	        { to: '/login', activeClassName: 'active', activeStyle: { fontWeight: "bold" } },
 	        'Login'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#/about' },
+	        ' Abboutt'
 	      )
 	    );
 	  }
@@ -25499,28 +25505,25 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var Search = __webpack_require__(227);
+	var Newsfeeds = __webpack_require__(228);
 
 	var News = React.createClass({
 	  displayName: 'News',
 
-
+	  getInitialState: function getInitialState() {
+	    return {
+	      newsSite: "CNN"
+	    };
+	  },
+	  handleSearch: function handleSearch(newsSite) {
+	    this.setState({
+	      newsSite: newsSite
+	    });
+	  },
 	  render: function render() {
+	    var newsSite = this.state.newsSite;
 
-	    function tick() {
-	      var element = React.createElement(
-	        'div',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'It is ',
-	          new Date().toLocaleTimeString(),
-	          '.'
-	        )
-	      );
-	    }
-
-	    setInterval(tick, 1000);
 
 	    return React.createElement(
 	      'div',
@@ -25528,9 +25531,10 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        'The News in ',
-	        setInterval(tick, 1000)
-	      )
+	        'The News highlights'
+	      ),
+	      React.createElement(Search, { onSearch: this.handleSearch }),
+	      React.createElement(Newsfeeds, { newsSite: newsSite })
 	    );
 	  }
 	});
@@ -25590,6 +25594,84 @@
 	});
 
 	module.exports = Login;
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Search = React.createClass({
+	  displayName: "Search",
+
+	  onFormSubmit: function onFormSubmit(e) {
+	    e.preventDefault();
+	    var newsSite = this.refs.newsSite.value;
+	    console.log(newsSite);
+
+	    if (newsSite.length > 0) {
+	      this.refs.newsSite.value = " ";
+	      this.props.onSearch(newsSite);
+	    }
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "form",
+	        { onSubmit: this.onFormSubmit },
+	        React.createElement("input", { type: "text", ref: "newsSite" }),
+	        React.createElement(
+	          "button",
+	          null,
+	          "Search News"
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Search;
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Newsfeeds = React.createClass({
+	  displayName: 'Newsfeeds',
+
+	  render: function render() {
+	    var newsSite = this.props.newsSite;
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h2',
+	        null,
+	        newsSite
+	      ),
+	      React.createElement(
+	        'h3',
+	        null,
+	        React.createElement(
+	          'a',
+	          { href: '#' },
+	          'Barcelona crashes out'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Newsfeeds;
 
 /***/ })
 /******/ ]);

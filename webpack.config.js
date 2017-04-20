@@ -11,6 +11,8 @@ module.exports = {
       Nav: 'app/components/Nav.jsx',
       News: 'app/components/News.jsx',
       About: 'app/components/About.jsx',
+      Search: 'app/components/Search.jsx',
+      Newsfeeds: 'app/components/Newsfeeds.jsx',
       Login: 'app/components/Login.jsx'
     },
     extensions: ['', '.js', '.jsx']

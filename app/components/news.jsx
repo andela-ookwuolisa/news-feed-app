@@ -1,28 +1,28 @@
 var React = require('react');
+var Search = require('Search');
+var Newsfeeds = require('Newsfeeds');
 
 var News = React.createClass({
+  getInitialState: function(){
+    return {
+      newsSite: "CNN"
+    }
 
-
-  
+  },
+  handleSearch: function(newsSite) {
+  this.setState({
+    newsSite : newsSite
+  });
+  },
   render: function () {
-
-    function tick() {
-  const element = (
-    <div>
-      
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
-}
-
-setInterval(tick, 1000);
+    var {newsSite} = this.state
 
     
     return (
       <div>
-        <h2>The News in {setInterval(tick,1000)}</h2>
-        
-
+        <h2>The News highlights</h2>
+        <Search onSearch = {this.handleSearch}/>
+        <Newsfeeds newsSite={newsSite}/>
       </div>
     );
   }
