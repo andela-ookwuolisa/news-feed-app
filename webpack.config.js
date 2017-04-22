@@ -13,6 +13,7 @@ module.exports = {
       About: 'app/components/About.jsx',
       Search: 'app/components/Search.jsx',
       Newsfeeds: 'app/components/Newsfeeds.jsx',
+      API: 'app/api/API.jsx',
       Login: 'app/components/Login.jsx'
     },
     extensions: ['', '.js', '.jsx']

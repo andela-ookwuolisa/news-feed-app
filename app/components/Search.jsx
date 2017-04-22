@@ -4,10 +4,9 @@ var Search = React.createClass({
   onFormSubmit: function(e) {
     e.preventDefault();
     var newsSite = this.refs.newsSite.value;
-    console.log(newsSite);
 
     if (newsSite.length > 0){
-      this.refs.newsSite.value = " ";
+      this.refs.newsSite.value = "";
       this.props.onSearch(newsSite);
     }
 
