@@ -2,6 +2,7 @@ var React = require('react');
 var Select = require('react-select');
 import newsStore from '../stores/newsStore';
 var NewsActions = require('NewsActions');
+var Newsfeeds = require('Newsfeeds');
 
 //import 'react-select/dist/react-select.css';
 
@@ -10,7 +11,9 @@ var Search = React.createClass({
   getInitialState() {
   return {
     sources: [],
-    currentValue:''
+    currentValue:'',
+    currentName:'',
+    articles:[]
   }
 },
 
@@ -30,11 +33,10 @@ handleSourceChange() {
   })
 },
 setValue(val){
-  if(val){
-    this.setState({
+      this.setState({
       currentValue: val
     });
-  }
+  
 },
 getNews(){
   var newSite = this.state.currentValue.value;
@@ -61,10 +63,7 @@ getNews(){
   
   render: function () {
     
-    console.log('Search bar',this.state.sources);
-     function logChange() {
-  console.log("Selected: ");
-      }
+      
     var options = this.state.sources.map(function(source){
       return ({value: source.id,
         label:source.name})
@@ -84,6 +83,8 @@ getNews(){
         ref = "search-bar"
         />
         <button onClick = {this.getNews}>Search News</button>
+        <Newsfeeds articles={this.state.articles} 
+        sourceName={this.state.currentValue.label}/>
       </div>
       
     );

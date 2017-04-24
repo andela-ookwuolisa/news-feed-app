@@ -34,7 +34,7 @@ handleArticleChange() {
     });
     return (
       <div>
-          <h2> This is the Newsfeed Component</h2>
+          <h2> This is the Newsfeed for {this.props.sourceName}</h2>
           <ul>{allArticles}</ul>
           <h3> footer </h3>
   

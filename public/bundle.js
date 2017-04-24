@@ -56,7 +56,7 @@
 	    hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(222);
-	var News = __webpack_require__(224);
+	var Search = __webpack_require__(225);
 	var About = __webpack_require__(265);
 	var Login = __webpack_require__(266);
 
@@ -68,7 +68,7 @@
 	    { path: '/', component: Main },
 	    React.createElement(Route, { path: 'about', component: About }),
 	    React.createElement(Route, { path: 'login', component: Login }),
-	    React.createElement(IndexRoute, { component: News })
+	    React.createElement(IndexRoute, { component: Search })
 	  )
 	), document.getElementById('app'));
 
@@ -25500,55 +25500,29 @@
 
 /***/ },
 /* 224 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Search = __webpack_require__(225);
-	var Newsfeeds = __webpack_require__(226);
-	var API = __webpack_require__(234);
-	var NewsActions = __webpack_require__(235);
+	/*var React = require('react');
+	var Search = require('Search');
+	var API = require('API');
+	var NewsActions = require('NewsActions');
 
 	var News = React.createClass({
-	  displayName: 'News',
+	 
 
-	  getInitialState: function getInitialState() {
-	    return {
-	      newsSite: "?",
-	      articles: []
-	    };
-	  },
-	  // componentWillMount: function(){
-	  //   this.setState({
-	  //     sources: NewsActions.displaySource()
-	  //   })
-
-	  // },
-
-	  handleSearch: function handleSearch(newsSite) {
-	    this.setState({
-	      newsSite: newsSite
-	    });
-	  },
-
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h2',
-	        null,
-	        'The News highlights for ',
-	        this.state.newsSite
-	      ),
-	      React.createElement(Search, null),
-	      React.createElement(Newsfeeds, { articles: this.state.articles })
+	  render: function () {  
+	    return (
+	      <div>
+	        <h2></h2>
+	        <Search />
+	      </div>
 	    );
 	  }
 	});
 
 	module.exports = News;
+	        */
+	"use strict";
 
 /***/ },
 /* 225 */
@@ -25566,6 +25540,7 @@
 	var Select = __webpack_require__(267);
 
 	var NewsActions = __webpack_require__(235);
+	var Newsfeeds = __webpack_require__(226);
 
 	//import 'react-select/dist/react-select.css';
 
@@ -25574,7 +25549,9 @@
 	  getInitialState: function getInitialState() {
 	    return {
 	      sources: [],
-	      currentValue: ''
+	      currentValue: '',
+	      currentName: '',
+	      articles: []
 	    };
 	  },
 	  componentWillMount: function componentWillMount() {
@@ -25591,11 +25568,9 @@
 	    });
 	  },
 	  setValue: function setValue(val) {
-	    if (val) {
-	      this.setState({
-	        currentValue: val
-	      });
-	    }
+	    this.setState({
+	      currentValue: val
+	    });
 	  },
 	  getNews: function getNews() {
 	    var newSite = this.state.currentValue.value;
@@ -25618,10 +25593,6 @@
 
 	  render: function render() {
 
-	    console.log('Search bar', this.state.sources);
-	    function logChange() {
-	      console.log("Selected: ");
-	    }
 	    var options = this.state.sources.map(function (source) {
 	      return { value: source.id,
 	        label: source.name };
@@ -25643,7 +25614,9 @@
 	        'button',
 	        { onClick: this.getNews },
 	        'Search News'
-	      )
+	      ),
+	      React.createElement(Newsfeeds, { articles: this.state.articles,
+	        sourceName: this.state.currentValue.label })
 	    );
 	  }
 	});
@@ -25718,7 +25691,8 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        ' This is the Newsfeed Component'
+	        ' This is the Newsfeed for ',
+	        this.props.sourceName
 	      ),
 	      React.createElement(
 	        'ul',
