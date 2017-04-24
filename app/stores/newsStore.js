@@ -3,7 +3,8 @@ import dispatcher from '../dispatcher/newsDispatcher';
  var assign = require('object-assign');
  var CHANGE_EVENT = 'change';
 
- var _articles = []
+ var _articles = [];
+ var _sources = [];
 
  var NewsStore = assign({}, EventEmitter.prototype, {
      addChangeListener: function(callback){
@@ -16,17 +17,23 @@ import dispatcher from '../dispatcher/newsDispatcher';
          this.emit(CHANGE_EVENT);
      },
      getNews: function(){
-         console.log("newsStore", );
+        
          return _articles;
+     },
+     displaySource: function(){
+         return _sources;
      }
  });
 
  function handleAction(action) {
-    console.log('Dispatched');
     switch(action.type){
         case "GET_NEWS":
-            console.log('switch1');
             _articles = action.news.articles;
+            NewsStore.emitChange();
+            break;
+
+         case "DISPLAY_NEWS":
+            _sources = action.news;
             NewsStore.emitChange();
             break;
 

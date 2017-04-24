@@ -8,11 +8,15 @@ var News = React.createClass({
   getInitialState: function(){
     return {
       newsSite: "?",
-      articles: []
+      articles: [],
+      sources : []
     }
 
   },
   componentWillMount: function(){
+    this.setState({
+      sources: NewsActions.displaySource()
+    })
 
   },
 
@@ -23,7 +27,7 @@ var News = React.createClass({
 
      var that = this;
 
-    NewsActions.getNews(newsSite);
+    //NewsActions.getNews(newsSite);
 
     //  API.getNews(newsSite).then(function(temp){
     //   //  console.log(temp);
@@ -37,11 +41,19 @@ var News = React.createClass({
     
 
   },
-  render: function () {    
+
+  render: function () {  
+    // const options = this.state.sources.map((source) => {
+    //   return {value:source.id, label:source.name}
+ //  })
     return (
       <div>
         <h2>The News highlights for {this.state.newsSite}</h2>
-        <Search onSearch = {this.handleSearch}/>
+        <Search
+       
+
+        //onSearch = {this.handleSearch}
+        />
         <Newsfeeds articles={this.state.articles}/>
       </div>
     );
@@ -49,3 +61,8 @@ var News = React.createClass({
 });
 
 module.exports = News;
+//  sources = {options}
+//         value = {"boy"}
+//         onchange = {this.test}
+//         onclick = {this.test}
+        

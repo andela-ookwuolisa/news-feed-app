@@ -15,12 +15,13 @@ componentDidMount() {
 
 handleArticleChange() {
   this.setState({
-    articles: newsStore.getNews()
+    articles: newsStore.getNews(),
+    
+
   })
 },
 
   render: function () {
-    console.log(this.state)
     var allArticles = this.state.articles.map(function(article, index){
       return (
         <li key={index}> 

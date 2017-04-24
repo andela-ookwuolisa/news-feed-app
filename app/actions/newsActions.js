@@ -4,12 +4,17 @@ var API = require ('API');
 var articles;
 
 var NewsActions = {
-    displaySoure(){
+    displaySource(){
         var sourceURL = ` https://newsapi.org/v1/sources?language=en`;
           return axios.get(sourceURL).then(function (res){
-            console.log(res.data);})
+              console.log(res.data.sources)
 
+             dispatcher.dispatch({         
+                type: "DISPLAY_NEWS",
+                news: res.data.sources
+            });
 
+          })
 
     },
 

@@ -33,5 +33,6 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-eval-source-map'
+  devtools: 'cheap-module-eval-source-map'
 };
+
