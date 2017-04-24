@@ -36,6 +36,7 @@ handleArticleChange() {
       <div>
           <h2> This is the Newsfeed Component</h2>
           <ul>{allArticles}</ul>
+          <h3> footer </h3>
   
       </div>
     );

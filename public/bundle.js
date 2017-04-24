@@ -25516,40 +25516,23 @@
 	  getInitialState: function getInitialState() {
 	    return {
 	      newsSite: "?",
-	      articles: [],
-	      sources: []
+	      articles: []
 	    };
 	  },
-	  componentWillMount: function componentWillMount() {
-	    this.setState({
-	      sources: NewsActions.displaySource()
-	    });
-	  },
+	  // componentWillMount: function(){
+	  //   this.setState({
+	  //     sources: NewsActions.displaySource()
+	  //   })
+
+	  // },
 
 	  handleSearch: function handleSearch(newsSite) {
 	    this.setState({
 	      newsSite: newsSite
 	    });
-
-	    var that = this;
-
-	    //NewsActions.getNews(newsSite);
-
-	    //  API.getNews(newsSite).then(function(temp){
-	    //   //  console.log(temp);
-	    //     that.setState({
-	    //       articles: temp
-	    //     });
-	    //  }, function(error){
-	    //     console.log(error);
-	    //  });
-
 	  },
 
 	  render: function render() {
-	    // const options = this.state.sources.map((source) => {
-	    //   return {value:source.id, label:source.name}
-	    //  })
 	    return React.createElement(
 	      'div',
 	      null,
@@ -25559,20 +25542,13 @@
 	        'The News highlights for ',
 	        this.state.newsSite
 	      ),
-	      React.createElement(Search
-
-	      //onSearch = {this.handleSearch}
-	      , null),
+	      React.createElement(Search, null),
 	      React.createElement(Newsfeeds, { articles: this.state.articles })
 	    );
 	  }
 	});
 
 	module.exports = News;
-	//  sources = {options}
-	//         value = {"boy"}
-	//         onchange = {this.test}
-	//         onclick = {this.test}
 
 /***/ },
 /* 225 */
@@ -25601,8 +25577,12 @@
 	      currentValue: ''
 	    };
 	  },
-	  componentDidMount: function componentDidMount() {
+	  componentWillMount: function componentWillMount() {
+	    NewsActions.displaySource();
 	    _newsStore2.default.addChangeListener(this.handleSourceChange);
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    _newsStore2.default.removeChangeListener(this.handleSourceChange);
 	  },
 	  handleSourceChange: function handleSourceChange() {
 	    this.setState({
@@ -25744,6 +25724,11 @@
 	        'ul',
 	        null,
 	        allArticles
+	      ),
+	      React.createElement(
+	        'h3',
+	        null,
+	        ' footer '
 	      )
 	    );
 	  }
@@ -25781,7 +25766,6 @@
 	        this.emit(CHANGE_EVENT);
 	    },
 	    getNews: function getNews() {
-
 	        return _articles;
 	    },
 	    displaySource: function displaySource() {

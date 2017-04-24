@@ -13,8 +13,14 @@ var Search = React.createClass({
     currentValue:''
   }
 },
-componentDidMount() {
+
+componentWillMount() {
+   NewsActions.displaySource()
   newsStore.addChangeListener(this.handleSourceChange);
+},
+
+componentWillUnmount() {
+  newsStore.removeChangeListener(this.handleSourceChange);
 },
 handleSourceChange() {
   this.setState({
@@ -68,10 +74,6 @@ getNews(){
 
     return (
       <div>
-        {/*<form onSubmit ={this.onFormSubmit} >
-            <input type ="text" ref="newsSite"/>
-            <button>Search News</button>
-        </form>*/}
 
         <Select
         name = "form-field-name"

@@ -16,8 +16,7 @@ import dispatcher from '../dispatcher/newsDispatcher';
      emitChange: function(){
          this.emit(CHANGE_EVENT);
      },
-     getNews: function(){
-        
+     getNews: function(){        
          return _articles;
      },
      displaySource: function(){
