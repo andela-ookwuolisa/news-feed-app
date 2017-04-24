@@ -2,6 +2,7 @@ var React = require('react');
 var Search = require('Search');
 var Newsfeeds = require('Newsfeeds');
 var API = require('API');
+var NewsActions = require('NewsActions');
 
 var News = React.createClass({
   getInitialState: function(){
@@ -11,6 +12,10 @@ var News = React.createClass({
     }
 
   },
+  componentWillMount: function(){
+
+  },
+
   handleSearch: function(newsSite) {
      this.setState({
         newsSite: newsSite
@@ -18,18 +23,18 @@ var News = React.createClass({
 
      var that = this;
 
-     API.getNews(newsSite).then(function(temp){
-      //  console.log(temp);
-        that.setState({
-          articles: temp
-        });
-     }, function(error){
-        console.log(error);
-     });
-    //  console.log()
-    // this.setState({
-    //   newsSite : API.getNews(newsSite)
-    // });
+    NewsActions.getNews(newsSite);
+
+    //  API.getNews(newsSite).then(function(temp){
+    //   //  console.log(temp);
+    //     that.setState({
+    //       articles: temp
+    //     });
+    //  }, function(error){
+    //     console.log(error);
+    //  });
+
+    
 
   },
   render: function () {    
