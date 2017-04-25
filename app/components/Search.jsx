@@ -1,48 +1,46 @@
-var React = require('react');
-var Select = require('react-select');
-import newsStore from '../stores/newsStore';
-var NewsActions = require('NewsActions');
-var Newsfeeds = require('Newsfeeds');
+import React from 'react';
+import Select from 'react-select';
+import newsStore from 'NewsStore';
+import NewsActions from 'NewsActions';
+import Newsfeeds from 'Newsfeeds';
 
-//import 'react-select/dist/react-select.css';
+export default class Search extends React.Component{
 
-var Search = React.createClass({
-
-  getInitialState() {
-  return {
-    sources: [],
+  constructor(){
+    super()
+    this.state = {
+       sources: [],
     currentValue:'',
     currentName:'',
     articles:[]
+    };
   }
-},
-
+  
 componentWillMount() {
    NewsActions.displaySource()
-  newsStore.addChangeListener(this.handleSourceChange);
-},
+  newsStore.addChangeListener(this.handleSourceChange.bind(this));
+}
 
 componentWillUnmount() {
-  newsStore.removeChangeListener(this.handleSourceChange);
-},
+  newsStore.removeChangeListener(this.handleSourceChange.bind(this));
+}
 handleSourceChange() {
   this.setState({
-    sources: newsStore.displaySource(),
-    
+    sources: newsStore.displaySource()  
 
-  })
-},
+  });
+}
 setValue(val){
       this.setState({
       currentValue: val
     });
   
-},
+}
 getNews(){
   var newSite = this.state.currentValue.value;
   NewsActions.getNews(newSite);
   console.log(newSite);
-},
+}
 
   
 
@@ -61,10 +59,10 @@ getNews(){
   // },
 
   
-  render: function () {
+  render () {
     
       
-    var options = this.state.sources.map(function(source){
+    var options = this.state.sources.map((source)=>{
       return ({value: source.id,
         label:source.name})
     });
@@ -78,17 +76,15 @@ getNews(){
         name = "form-field-name"
         options = {options}
         value= {this.state.currentValue}
-        onChange = {this.setValue}
+        onChange = {this.setValue.bind(this)}
         clearable={true}
         ref = "search-bar"
         />
-        <button onClick = {this.getNews}>Search News</button>
+        <button onClick = {this.getNews.bind(this)}>Search News</button>
         <Newsfeeds articles={this.state.articles} 
         sourceName={this.state.currentValue.label}/>
       </div>
       
     );
   }
-});
-
-module.exports = Search;
+};

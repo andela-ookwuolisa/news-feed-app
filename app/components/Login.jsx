@@ -1,8 +1,7 @@
-var React = require('react')
+import React from 'react';
 
-var Login = React.createClass({
-
-  render: function () {
+export default class Login extends React.Component{
+  render() {
     return (
       <div>
         <h2>The login page</h2>
@@ -10,6 +9,4 @@ var Login = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Login;
+};

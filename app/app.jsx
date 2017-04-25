@@ -1,10 +1,10 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-var Main = require('./components/Main');
-var Search = require('Search');
-var About = require('About');
-var Login = require('Login');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Route, Router, IndexRoute, hashHistory} from'react-router';
+import Main from './components/Main';
+import Search from 'Search';
+import About from 'About';
+import Login from 'Login';
 
 ReactDOM.render(
   <Router history={hashHistory}>

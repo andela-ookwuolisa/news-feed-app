@@ -1,17 +1,24 @@
-var React = require('react');
+import React from 'react';
 import newsStore from '../stores/newsStore';
 
-var Newsfeeds = React.createClass({
+export default class Newsfeed extends React.Component{
 
-getInitialState() {
-  return {
-    articles: []
+  constructor(){
+    super()
+    this.state = {
+    articles:[]
+    };
   }
-},
+
+// getInitialState() {
+//   return {
+//     articles: []
+//   }
+// },
 
 componentDidMount() {
-  newsStore.addChangeListener(this.handleArticleChange);
-},
+  newsStore.addChangeListener(this.handleArticleChange.bind(this));
+}
 
 handleArticleChange() {
   this.setState({
@@ -19,9 +26,9 @@ handleArticleChange() {
     
 
   })
-},
+}
 
-  render: function () {
+  render () {
     var allArticles = this.state.articles.map(function(article, index){
       return (
         <li key={index}> 
@@ -41,6 +48,4 @@ handleArticleChange() {
       </div>
     );
   }
-});
-
-module.exports = Newsfeeds;
+};

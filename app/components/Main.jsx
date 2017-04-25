@@ -1,9 +1,9 @@
-var React = require('react');
-var Nav = require('Nav');
-var News = require('News');
+import React from'react';
+import Nav from 'Nav';
+import News from 'News';
 
-var Main = React.createClass({
-  render: function () {
+export default class Main extends React.Component{
+  render () {
     return (
       <div>
           <Nav/>
@@ -12,6 +12,4 @@ var Main = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Main;
+};
