@@ -9,7 +9,6 @@ var Nav = React.createClass({
         <IndexLink to="/" activeClassName ="active" activeStyle = {{fontWeight:"bold"}}>Get News</IndexLink>
         <Link to="/about"activeClassName ="active" activeStyle = {{fontWeight:"bold"}}>About</Link>
         <Link to="/login"activeClassName ="active" activeStyle = {{fontWeight:"bold"}}>Login</Link>
-        <a href ="#/about"> Abboutt</a>
       </div>
     );
   }

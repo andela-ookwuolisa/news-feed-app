@@ -25486,11 +25486,6 @@
 	        Link,
 	        { to: '/login', activeClassName: 'active', activeStyle: { fontWeight: "bold" } },
 	        'Login'
-	      ),
-	      React.createElement(
-	        'a',
-	        { href: '#/about' },
-	        ' Abboutt'
 	      )
 	    );
 	  }
