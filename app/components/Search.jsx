@@ -20,6 +20,7 @@ var Search = React.createClass({
         </form>
       </div>
     );
+    
   }
 });
 

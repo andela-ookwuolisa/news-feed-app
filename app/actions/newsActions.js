@@ -19,6 +19,7 @@ var NewsActions = {
         
         return axios.get(requestURL).then(function (res){
             console.log(res.data);
+            
             dispatcher.dispatch({         
                 type: "GET_NEWS",
                 news: res.data

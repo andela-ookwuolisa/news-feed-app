@@ -6,6 +6,7 @@ var News = require('News');
 var About = require('About');
 var Login = require('Login');
 
+
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>

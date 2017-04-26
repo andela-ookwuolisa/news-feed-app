@@ -15,6 +15,7 @@ var News = React.createClass({
   componentWillMount: function(){
 
   },
+  
 
   handleSearch: function(newsSite) {
      this.setState({

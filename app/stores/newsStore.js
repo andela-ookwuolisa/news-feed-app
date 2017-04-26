@@ -16,7 +16,6 @@ import dispatcher from '../dispatcher/newsDispatcher';
          this.emit(CHANGE_EVENT);
      },
      getNews: function(){
-         console.log("newsStore", );
          return _articles;
      }
  });
