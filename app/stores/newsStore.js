@@ -1,12 +1,12 @@
 import dispatcher from '../dispatcher/newsDispatcher';
- var EventEmitter = require('events');
- var assign = require('object-assign');
- var CHANGE_EVENT = 'change';
+ import EventEmitter from 'events';
+ import assign from 'object-assign';
+ const CHANGE_EVENT = 'change';
 
- var _articles = [];
- var _sources = [];
+ let _articles = [];
+ let _sources = [];
 
- var NewsStore = assign({}, EventEmitter.prototype, {
+ let NewsStore = assign({}, EventEmitter.prototype, {
      addChangeListener: function(callback){
          this.on(CHANGE_EVENT, callback);
      },

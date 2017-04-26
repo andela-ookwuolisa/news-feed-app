@@ -3,6 +3,7 @@ import Select from 'react-select';
 import newsStore from 'NewsStore';
 import NewsActions from 'NewsActions';
 import Newsfeeds from 'Newsfeeds';
+//import 'react-select/dist/react-select.css';
 
 export default class Search extends React.Component{
 
@@ -39,7 +40,6 @@ setValue(val){
 getNews(){
   var newSite = this.state.currentValue.value;
   NewsActions.getNews(newSite);
-  console.log(newSite);
 }
 
   
@@ -66,7 +66,6 @@ getNews(){
       return ({value: source.id,
         label:source.name})
     });
-    console.log('current value',this.state.currentValue);
 
 
     return (
@@ -80,7 +79,7 @@ getNews(){
         clearable={true}
         ref = "search-bar"
         />
-        <button onClick = {this.getNews.bind(this)}>Search News</button>
+        <button className="btn btn-info" onClick = {this.getNews.bind(this)}>Search News</button>
         <Newsfeeds articles={this.state.articles} 
         sourceName={this.state.currentValue.label}/>
       </div>

@@ -10,16 +10,13 @@ export default class Newsfeed extends React.Component{
     };
   }
 
-// getInitialState() {
-//   return {
-//     articles: []
-//   }
-// },
 
-componentDidMount() {
+componentWillMount() {
   newsStore.addChangeListener(this.handleArticleChange.bind(this));
 }
-
+componentWillUnmount() {
+  newsStore.removeChangeListener(this.handleArticleChange.bind(this));
+}
 handleArticleChange() {
   this.setState({
     articles: newsStore.getNews(),
@@ -30,20 +27,28 @@ handleArticleChange() {
 
   render () {
     var allArticles = this.state.articles.map(function(article, index){
-      return (
-        <li key={index}> 
-          <h2> {article.title} </h2>
-          <small>{article.author} - {article.publishedAt} </small>
-          <p> {article.description} </p>
-        </li>
+      return (    
+
+        <div key={index}>
+  <div className="col-sm-6 col-md-4">
+    <div className="thumbnail">
+      <img src={article.urlToImage} />
+      <div className="caption">
+        <h3>{article.title}</h3>
+        <small>{article.publishedAt} </small>
+        <p>{article.description}<a href={article.url}> Read more...</a></p>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
 
       )
     });
     return (
       <div>
           <h2> This is the Newsfeed for {this.props.sourceName}</h2>
-          <ul>{allArticles}</ul>
-          <h3> footer </h3>
+          <div>{allArticles}</div>
   
       </div>
     );
