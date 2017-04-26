@@ -11,7 +11,13 @@ module.exports = {
       Nav: 'app/components/Nav.jsx',
       News: 'app/components/News.jsx',
       About: 'app/components/About.jsx',
-      Login: 'app/components/Login.jsx'
+      Search: 'app/components/Search.jsx',
+      Newsfeeds: 'app/components/Newsfeeds.jsx',
+      API: 'app/api/API.js',
+      Login: 'app/components/Login.jsx',
+      Dispatcher: 'app/dispatcher/newsDispatcher.js',
+      NewsActions: 'app/actions/newsActions.js',
+      NewsStore: 'app/stores/newsStore.js'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -26,5 +32,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }
     ]
-  }
+  },
+  devtool: 'cheap-module-eval-source-map'
 };

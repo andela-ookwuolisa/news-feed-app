@@ -1,28 +1,48 @@
 var React = require('react');
+var Search = require('Search');
+var Newsfeeds = require('Newsfeeds');
+var API = require('API');
+var NewsActions = require('NewsActions');
 
 var News = React.createClass({
+  getInitialState: function(){
+    return {
+      newsSite: "?",
+      articles: []
+    }
 
+  },
+  componentWillMount: function(){
 
-  
-  render: function () {
+  },
 
-    function tick() {
-  const element = (
-    <div>
-      
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
-}
+  handleSearch: function(newsSite) {
+     this.setState({
+        newsSite: newsSite
+     });
 
-setInterval(tick, 1000);
+     var that = this;
+
+    NewsActions.getNews(newsSite);
+
+    //  API.getNews(newsSite).then(function(temp){
+    //   //  console.log(temp);
+    //     that.setState({
+    //       articles: temp
+    //     });
+    //  }, function(error){
+    //     console.log(error);
+    //  });
 
     
+
+  },
+  render: function () {    
     return (
       <div>
-        <h2>The News in {setInterval(tick,1000)}</h2>
-        
-
+        <h2>The News highlights for {this.state.newsSite}</h2>
+        <Search onSearch = {this.handleSearch}/>
+        <Newsfeeds articles={this.state.articles}/>
       </div>
     );
   }
