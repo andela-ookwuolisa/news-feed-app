@@ -1,38 +1,52 @@
+var path = require('path');
 module.exports = {
+  devtool: 'eval-source-map',
   entry: './app/app.jsx',
   output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
   resolve: {
-    root: __dirname,
     alias: {
-      Main: 'app/components/Main.jsx',
-      Nav: 'app/components/Nav.jsx',
-      News: 'app/components/News.jsx',
-      About: 'app/components/About.jsx',
-      Search: 'app/components/Search.jsx',
-      Newsfeeds: 'app/components/Newsfeeds.jsx',
-      API: 'app/api/API.js',
-      Login: 'app/components/Login.jsx',
-      Dispatcher: 'app/dispatcher/newsDispatcher.js',
-      NewsActions: 'app/actions/newsActions.js',
-      NewsStore: 'app/stores/newsStore.js'
+      Main: path.resolve(__dirname,'app/components/Main.jsx'),
+      Nav: path.resolve(__dirname,'app/components/Nav.jsx'),
+      News: path.resolve(__dirname,'app/components/News.jsx'),
+      About: path.resolve(__dirname,'app/components/About.jsx'),
+      Search: path.resolve(__dirname,'app/components/Search.jsx'),
+      Newsfeeds: path.resolve(__dirname,'app/components/Newsfeeds.jsx'),
+      API: path.resolve(__dirname,'app/api/API.js'),
+      Login: path.resolve(__dirname,'app/components/Login.jsx'),
+      Dispatcher: path.resolve(__dirname,'app/dispatcher/newsDispatcher.js'),
+      NewsActions: path.resolve(__dirname,'app/actions/newsActions.js'),
+      NewsStore: path.resolve(__dirname,'app/stores/newsStore.js')
     },
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        },
+      },
+      {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
+      
+    ],
     loaders: [
       {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-0']
         },
-        test: /\.jsx?$/,
+         test: /\.css$/, loader: "style!css" ,
         exclude: /(node_modules|bower_components)/
       }
-    ]
-  },
-  devtools: 'cheap-module-eval-source-map'
+    ],
+   
+  }
+  
 };
 
