@@ -12,7 +12,6 @@ export default class Search extends React.Component{
     this.state = {
        sources: [],
     currentValue:'',
-    currentName:'',
     articles:[]
     };
   }
@@ -35,11 +34,13 @@ setValue(val){
       this.setState({
       currentValue: val
     });
+    getNews()
   
 }
-getNews(){
+getNews(e){
   var newSite = this.state.currentValue.value;
-  NewsActions.getNews(newSite);
+  var sort = e.target.value;
+  NewsActions.getNews(newSite,sort);
 }
 
   
@@ -61,11 +62,18 @@ getNews(){
   
   render () {
     
-      
+    console.log(this.state.currentValue.sort)  
+    this.state.currentValue.sort
     var options = this.state.sources.map((source)=>{
       return ({value: source.id,
-        label:source.name})
+        label:source.name,
+        sort:source.sortBysAvailable
     });
+  })
+
+  if(this.state.currentValue.sort){
+  var option = this.state.currentValue.sort.map((sort, index)=> <option key={index}>{sort}</option>)
+  }
 
 
     return (
@@ -80,6 +88,7 @@ getNews(){
         ref = "search-bar"
         />
         <button className="btn btn-info" onClick = {this.getNews.bind(this)}>Search News</button>
+        <select className="form-control" onChange = {this.getNews.bind(this)} > {option}</select>
         <Newsfeeds articles={this.state.articles} 
         sourceName={this.state.currentValue.label}/>
       </div>
