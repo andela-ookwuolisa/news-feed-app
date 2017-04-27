@@ -32,18 +32,8 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0']
         },
       },
-      {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
+      {test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
       
-    ],
-    loaders: [
-      {
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0']
-        },
-         test: /\.css$/, loader: "style!css" ,
-        exclude: /(node_modules|bower_components)/
-      }
     ],
    
   }
