@@ -1,10 +1,11 @@
-var path = require('path');
+const path = require('path');
+
 module.exports = {
   devtool: 'eval-source-map',
   entry: './app/app.jsx',
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
+    filename: './public/bundle.js',
   },
   resolve: {
     alias: {
