@@ -2,7 +2,6 @@ import axios from 'axios';
 import dispatcher from 'Dispatcher';
 import API from 'API';
 
-
 var NewsActions = {
     displaySource(){
         var sourceURL = ` https://newsapi.org/v1/sources?language=en`;
