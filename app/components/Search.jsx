@@ -3,7 +3,8 @@ import Select from 'react-select';
 import newsStore from 'NewsStore';
 import NewsActions from 'NewsActions';
 import Newsfeeds from 'Newsfeeds';
-//import 'react-select/dist/react-select.css';
+
+import 'react-select/dist/react-select.css';
 
 export default class Search extends React.Component{
 
@@ -12,7 +13,6 @@ export default class Search extends React.Component{
     this.state = {
        sources: [],
     currentValue:'',
-    currentName:'',
     articles:[]
     };
   }
@@ -34,12 +34,13 @@ handleSourceChange() {
 setValue(val){
       this.setState({
       currentValue: val
-    });
-  
+    });  
 }
-getNews(){
+getNews(e){
+  
   var newSite = this.state.currentValue.value;
-  NewsActions.getNews(newSite);
+  var sort = e.target.value;
+  NewsActions.getNews(newSite,sort);
 }
 
   
@@ -59,13 +60,18 @@ getNews(){
   // },
 
   
-  render () {
-    
-      
+  render () { 
+    this.state.currentValue.sort
     var options = this.state.sources.map((source)=>{
       return ({value: source.id,
-        label:source.name})
+        label:source.name,
+        sort:source.sortBysAvailable
     });
+  })
+
+  if(this.state.currentValue.sort){
+  var option = this.state.currentValue.sort.map((sort, index)=> <option key={index}>{sort}</option>)
+  }
 
 
     return (
@@ -76,10 +82,11 @@ getNews(){
         options = {options}
         value= {this.state.currentValue}
         onChange = {this.setValue.bind(this)}
-        clearable={true}
+        clearable={false}
         ref = "search-bar"
         />
         <button className="btn btn-info" onClick = {this.getNews.bind(this)}>Search News</button>
+        <div><select className="form-control" onChange = {this.getNews.bind(this)} > {option}</select></div>
         <Newsfeeds articles={this.state.articles} 
         sourceName={this.state.currentValue.label}/>
       </div>
