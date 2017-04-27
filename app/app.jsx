@@ -5,15 +5,14 @@ import Main from './components/Main';
 import Search from 'Search';
 import About from 'About';
 import Signout from 'Login';
-import '../public/index.scss'
+import '../public/index.scss';
 
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-    <Route path="about" component={About}/>
-    <Route path="signout" component={Signout}/>
-    <IndexRoute component={Search}/>
-
+      <Route path="about" component={About}/>
+      <Route path="signout" component={Signout}/>
+      <IndexRoute component={Search}/>
     </Route>
   </Router>,
   document.getElementById('app')
