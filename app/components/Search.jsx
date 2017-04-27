@@ -56,17 +56,16 @@ export default class Search extends React.Component {
   //
   render() {
     const options = this.state.sources.map((source) => {
-      return ({ value: source.id,
+      return ({
+        value: source.id,
         label: source.name,
         sort: source.sortBysAvailable,
       });
     });
     let sortOption = '';
     if (this.state.currentValue.sort) {
-      sortOption = this.state.currentValue.sort.map((sort, index) => {
-        const value = index * Date.now();
-        return <option key={value}>{sort}</option>;
-      });
+      sortOption = this.state.currentValue.sort.map(sort =>
+        <option key={`SortOption-${sort}`}>{sort}</option>);
     }
 
 
