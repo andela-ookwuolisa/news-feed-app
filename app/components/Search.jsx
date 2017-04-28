@@ -78,7 +78,6 @@ export default class Search extends React.Component {
           value={this.state.currentValue}
           onChange={this.setValue}
           clearable={false}
-          ref="search-bar"
         />
         <button className="btn btn-info" onClick={this.getNews}>Search News</button>
         <div>
