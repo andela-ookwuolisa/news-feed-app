@@ -1,7 +1,6 @@
-import dispatcher from '../dispatcher/newsDispatcher';
 import axios from 'axios';
-var API = require ('API');
-var articles;
+import dispatcher from 'Dispatcher';
+import API from 'API';
 
 var NewsActions = {
     displaySource(){

@@ -1,10 +1,11 @@
-var path = require('path');
+const path = require('path');
+
 module.exports = {
   devtool: 'eval-source-map',
   entry: './app/app.jsx',
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
+    filename: './public/bundle.js',
   },
   resolve: {
     alias: {
@@ -32,18 +33,8 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0']
         },
       },
-      {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
+      {test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
       
-    ],
-    loaders: [
-      {
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0']
-        },
-         test: /\.css$/, loader: "style!css" ,
-        exclude: /(node_modules|bower_components)/
-      }
     ],
    
   }
