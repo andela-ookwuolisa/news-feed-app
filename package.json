@@ -12,9 +12,12 @@
     "axios": "^0.16.1",
     "express": "^4.13.4",
     "flux": "^2.0.3",
+    "history": "^4.6.1",
+    "js-cookie": "^2.1.4",
     "object-assign": "^4.1.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-google-login": "^2.8.9",
     "react-router": "^2.0.0",
     "react-select": "^1.0.0-rc.3"
   },
