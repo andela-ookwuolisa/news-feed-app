@@ -17,6 +17,7 @@ module.exports = {
       Newsfeeds: path.resolve(__dirname,'app/components/Newsfeeds.jsx'),
       API: path.resolve(__dirname,'app/api/API.js'),
       Login: path.resolve(__dirname,'app/components/Login.jsx'),
+      Logout: path.resolve(__dirname,'app/components/Logout.js'),
       Dispatcher: path.resolve(__dirname,'app/dispatcher/newsDispatcher.js'),
       NewsActions: path.resolve(__dirname,'app/actions/newsActions.js'),
       NewsStore: path.resolve(__dirname,'app/stores/newsStore.js')

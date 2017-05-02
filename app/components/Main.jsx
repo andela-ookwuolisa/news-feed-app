@@ -3,6 +3,7 @@ import Nav from 'Nav';
 import News from 'News';
 
 export default class Main extends React.Component{
+  
   render () {
     return (
       <div>
