@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default class About extends React.Component{
-  render() {
+export default () => {
     return (
       <div>
         <h2 className="text-center">Newshub</h2>
@@ -11,5 +10,5 @@ export default class About extends React.Component{
         </pre>
       </div>
     );
-  }
-};
+  };
+
