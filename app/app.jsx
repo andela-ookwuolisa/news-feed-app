@@ -7,6 +7,7 @@ import About from 'About';
 import Login from 'Login';
 import Logout from './components/Logout';
 import '../public/index.scss';
+import'react-select/dist/react-select.css';
 import user from './user/user';
 
 function requireAuth(nextState, replace) {

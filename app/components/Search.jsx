@@ -1,9 +1,10 @@
 import React from 'react';
 import Select from 'react-select';
-import newsStore from 'NewsStore';
-import NewsActions from 'NewsActions';
-import Newsfeeds from 'Newsfeeds';
-import 'react-select/dist/react-select.css';
+import newsStore from '../stores/newsStore';
+import NewsActions from '../actions/newsActions';
+import Newsfeeds from './Newsfeeds';
+//import'react-select/dist/react-select';
+
 
 export default class Search extends React.Component {
 
@@ -11,7 +12,7 @@ export default class Search extends React.Component {
     super(props);
     this.state = {
       sources: [],
-      currentValue: '',
+      selectedSource: '',
       articles: [],
     };
     this.getNews = this.getNews.bind(this);
@@ -28,13 +29,13 @@ export default class Search extends React.Component {
     newsStore.removeChangeListener(this.handleSourceChange);
   }
 
-  setValue(val) {
+  setValue(source) {
     this.setState({
-      currentValue: val,
+      selectedSource: source,
     });
   }
   getNews(e) {
-    const newSite = this.state.currentValue.value;
+    const newSite = this.state.selectedSource.value;
     const sort = e.target.value;
     NewsActions.getNews(newSite, sort);
   }
@@ -44,16 +45,7 @@ export default class Search extends React.Component {
 
     });
   }
-
-  // onFormSubmit: function(e) {
-  //   e.preventDefault();
-  //   var newsSite = this.refs.newsSite.value;
-  //   if (newsSite.length > 0){
-  //     this.refs.newsSite.value = "";
-  //     this.props.onSearch(newsSite.toLowerCase());
-  //   }
-
-  //
+  
   render() {
     const options = this.state.sources.map((source) => {
       return ({
@@ -63,8 +55,8 @@ export default class Search extends React.Component {
       });
     });
     let sortOption = '';
-    if (this.state.currentValue.sort) {
-      sortOption = this.state.currentValue.sort.map(sort =>
+    if (this.state.selectedSource.sort) {
+      sortOption = this.state.selectedSource.sort.map(sort =>
         <option key={`SortOption-${sort}`}>{sort}</option>);
     }
 
@@ -75,7 +67,7 @@ export default class Search extends React.Component {
         <Select
           name="form-field-name"
           options={options}
-          value={this.state.currentValue}
+          value={this.state.selectedSource}
           onChange={this.setValue}
           clearable={false}
         />
@@ -85,7 +77,7 @@ export default class Search extends React.Component {
         </div>
         <Newsfeeds
           articles={this.state.articles}
-          sourceName={this.state.currentValue.label}
+          sourceName={this.state.selectedSource.label}
         />
       </div>
     );

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import dispatcher from 'Dispatcher';
-import API from 'API';
+import dispatcher from '../dispatcher/newsDispatcher';
+//import API from 'API';
 
 var NewsActions = {
     displaySource(){

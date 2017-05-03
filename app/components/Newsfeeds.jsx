@@ -1,13 +1,13 @@
 import React from 'react';
 import newsStore from '../stores/newsStore';
 
-export default class Newsfeed extends React.Component{
+export default class Newsfeed extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleArticleChange = this.handleArticleChange.bind(this);
     this.state = {
-      articles:[]
+      articles: []
     };
   }
 
@@ -25,9 +25,9 @@ export default class Newsfeed extends React.Component{
     });
   }
 
-  render () {
-    var allArticles = this.state.articles.map(function(article, index){
-      return (    
+  render() {
+    var allArticles = this.state.articles.map(function (article, index) {
+      return (
         <div key={index}>
           <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
@@ -45,8 +45,8 @@ export default class Newsfeed extends React.Component{
     });
     return (
       <div>
-          <h2> This is the Newsfeed for {this.props.sourceName}</h2>
-          <div>{allArticles}</div>
+        <h2> This is the Newsfeed for {this.props.sourceName}</h2>
+        <div>{allArticles}</div>
 
       </div>
     );
