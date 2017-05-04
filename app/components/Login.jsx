@@ -28,7 +28,6 @@ export default class Login extends React.Component {
           <h1 className="loginheader">News Hub</h1>
         </div>
         <div className="text-center">
-          <img src="./blue.jpg"/>
           <p classID="logintext"> View news headlines from over 70 Sources </p>
         </div>
 

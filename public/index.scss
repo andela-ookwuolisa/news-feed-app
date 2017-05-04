@@ -15,7 +15,11 @@
     left:50%;
 }
 .login-page{
-    background-image: url("~./img/blue.jpg");
+    background-image: url("/img/blue.jpg");
     background-size: cover;
     height: 100vh;
+    background-position: center;
+}
+.login-page{
+    color: white
 }
