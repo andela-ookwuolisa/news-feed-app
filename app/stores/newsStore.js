@@ -17,10 +17,10 @@ const NewsStore = assign({}, EventEmitter.prototype, {
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
-  getNews: () => {
+  getNews() {
     return _articles;
   },
-  displaySource: () => {
+  displaySource() {
     return _sources;
   },
 });

@@ -14,9 +14,9 @@ function requireAuth(nextState, replace) {
   if (!user.isLogin) {
     replace({
       pathname: '/login',
-      state: { nextPathname: nextState.location.pathname }
+      state: { nextPathname: nextState.location.pathname },
 
-    })
+    });
   }
 }
 
@@ -26,7 +26,7 @@ function checkAuth(nextState, replace) {
       pathname: '/',
       state: { nextPathname: nextState.location.pathname }
 
-    })
+    });
   }
 }
 
@@ -34,7 +34,6 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main} onEnter={requireAuth}>
       <Route path="about" component={About} />
-      <Route path="logout" component={Logout} />
       <IndexRoute component={Search} />
 
     </Route>
