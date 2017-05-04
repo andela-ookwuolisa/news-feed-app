@@ -34,7 +34,7 @@ export default class Login extends React.Component {
         <div className="button-text">
           <div className="text-center">
             <GoogleLogin
-              clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+              clientId="460538549894-1an8hpmun7pnjp0ub2mvsjl8t4t8svo2.apps.googleusercontent.com"
               buttonText="Sign-in"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
