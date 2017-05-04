@@ -60,23 +60,27 @@ export default class Search extends React.Component {
 
 
     return (
-      <div>
-
-        <Select
-          name="form-field-name"
-          options={options}
-          value={this.state.selectedSource}
-          onChange={this.setValue}
-          clearable={false}
-        />
-        <button className="btn btn-info" onClick={this.getNews}>Search News</button>
-        <div>
-          <select className="form-control" onChange={this.getNews}>{sortOption}</select>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-offset-3 col-md-6">
+            <Select
+              name="form-field-name"
+              options={options}
+              value={this.state.selectedSource}
+              onChange={this.setValue}
+              clearable={false}
+            />
+            <button className="btn btn-info btns" onClick={this.getNews}>Search News</button>
+            <div>
+              <select className="form-control" onChange={this.getNews}>{sortOption}</select>
+            </div>
+          </div>
         </div>
-        <Newsfeeds
-          articles={this.state.articles}
-          sourceName={this.state.selectedSource.label}
-        />
+
+            <Newsfeeds
+              articles={this.state.articles}
+              sourceName={this.state.selectedSource.label}
+            />
       </div>
     );
   }
