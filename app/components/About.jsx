@@ -1,15 +1,13 @@
-import React from 'react';
+var React = require('react');
 
-export default () => {
-  return (
-    <div>
-      <h2 className="text-center">Newshub</h2>
-      <div className="about-text">
-        Newshub is a one-stop collection of news headlines from the globe.</div>
-      <pre> current version:1.0.0
-          built and dseigned by Obinna Okwuolisa
-        </pre>
-    </div>
-  );
-};
+var About = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <h2>This is what we are about</h2>
+      </div>
+    );
+  }
+});
 
+module.exports = About;

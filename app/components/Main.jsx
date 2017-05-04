@@ -1,11 +1,17 @@
-import React from 'react';
-import Nav from 'Nav';
+var React = require('react');
+var Nav = require('Nav');
+var News = require('News');
 
-export default ({children }) => {
-  return (
-    <div>
-      <Nav />
-      {children}
-    </div>
-  );
-};
+var Main = React.createClass({
+  render: function () {
+    return (
+      <div>
+          <Nav/>
+        <h2>Main Component</h2>
+        {this.props.children}
+      </div>
+    );
+  }
+});
+
+module.exports = Main;

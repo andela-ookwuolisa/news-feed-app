@@ -1,45 +1,30 @@
-const path = require('path');
-
 module.exports = {
-  devtool: 'eval-source-map',
   entry: './app/app.jsx',
   output: {
     path: __dirname,
-    filename: './public/bundle.js',
+    filename: './public/bundle.js'
   },
   resolve: {
+    root: __dirname,
     alias: {
-      Main: path.resolve(__dirname, 'app/components/Main.jsx'),
-      Nav: path.resolve(__dirname, 'app/components/Nav.jsx'),
-      News: path.resolve(__dirname, 'app/components/News.jsx'),
-      About: path.resolve(__dirname, 'app/components/About.jsx'),
-      Search: path.resolve(__dirname, 'app/components/Search.jsx'),
-      Newsfeeds: path.resolve(__dirname, 'app/components/Newsfeeds.jsx'),
-      API: path.resolve(__dirname, 'app/api/API.js'),
-      Login: path.resolve(__dirname, 'app/components/Login.jsx'),
-      Logout: path.resolve(__dirname, 'app/components/Logout.js'),
-      Dispatcher: path.resolve(__dirname, 'app/dispatcher/newsDispatcher.js'),
-      NewsActions: path.resolve(__dirname, 'app/actions/newsActions.js'),
-      NewsStore: path.resolve(__dirname, 'app/stores/newsStore.js'),
+      Main: 'app/components/Main.jsx',
+      Nav: 'app/components/Nav.jsx',
+      News: 'app/components/News.jsx',
+      About: 'app/components/About.jsx',
+      Login: 'app/components/Login.jsx'
     },
-    extensions: ['.js', '.jsx'],
+    extensions: ['', '.js', '.jsx']
   },
   module: {
-    rules: [
+    loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-0'],
+          presets: ['react', 'es2015', 'stage-0']
         },
-      },
-      { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
-      { test: /\.jpg$/, use: ['file-loader', 'url-loader'] },
-
-    ],
-
-  },
-
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/
+      }
+    ]
+  }
 };
-
