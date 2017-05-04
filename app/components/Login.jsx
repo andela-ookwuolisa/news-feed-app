@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
-import user from '../user/user';
 import createHistory from 'history/createBrowserHistory';
+import user from '../user/user';
 
 const history = createHistory({
   forceRefresh: true,
