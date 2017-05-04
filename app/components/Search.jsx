@@ -3,7 +3,6 @@ import Select from 'react-select';
 import newsStore from '../stores/newsStore';
 import NewsActions from '../actions/newsActions';
 import Newsfeeds from './Newsfeeds';
-//import'react-select/dist/react-select';
 
 
 export default class Search extends React.Component {
@@ -45,7 +44,6 @@ export default class Search extends React.Component {
 
     });
   }
-  
   render() {
     const options = this.state.sources.map((source) => {
       return ({

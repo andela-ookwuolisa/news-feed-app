@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Search from '../components/Search';
-import Select from 'react-select';
 
 jest.dontMock('../components/Search');
 
@@ -16,9 +15,4 @@ describe('Test search component', () => {
     const wrapper = mount(<Search />);
     expect(wrapper.find('.form-control')).toBeDefined();
   });
-
-
-//   it("contains spec with an expectation", function() {
-//     //expect(mount(<Foo />).find('.foo').length).toBe(1);
-//   });
 });

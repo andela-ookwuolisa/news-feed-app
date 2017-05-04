@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import createHistory from 'history/createBrowserHistory';
 import user from '../user/user';
+
 const history = createHistory({
   forceRefresh: true,
 });
