@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andela-ookwuolisa/news-feed-app.svg?branch=master)](https://travis-ci.org/andela-ookwuolisa/news-feed-app)
+
 ----
 ## Description
 
