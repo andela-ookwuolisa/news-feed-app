@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/andela-ookwuolisa/news-feed-app.svg?branch=master)](https://travis-ci.org/andela-ookwuolisa/news-feed-app)
+[![Build Status](https://travis-ci.org/andela-ookwuolisa/news-feed-app.svg?branch=develop)](https://travis-ci.org/andela-ookwuolisa/news-feed-app)
+
+[![Coverage Status](https://coveralls.io/repos/github/andela-ookwuolisa/news-feed-app/badge.svg?branch=develop)](https://coveralls.io/github/andela-ookwuolisa/news-feed-app?branch=develop)
 
 ----
 ## Description
