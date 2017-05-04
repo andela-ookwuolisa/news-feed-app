@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "start": "nodemon server.js"
+    "start": "./node_modules/.bin/nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "flux": "^2.0.3",
     "history": "^4.6.1",
     "js-cookie": "^2.1.4",
+    "nodemon": "^1.11.0",
     "object-assign": "^4.1.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
