@@ -66,7 +66,7 @@ export default class Search extends React.Component {
             <Select
               name="form-field-name"
               options={options}
-              value={this.state.selectedSource}
+              //value={this.state.selectedSource}
               onChange={this.setValue}
               clearable={false}
             />
