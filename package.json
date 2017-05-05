@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "./node_modules/.bin/nodemon server.js",
-    "coverage": "coveralls > coverage/lcov.info"
+    "coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "author": "",
   "license": "ISC",
