@@ -33,9 +33,9 @@ export default class Search extends React.Component {
       selectedSource: source,
     });
   }
-  getNews(e) {
+  getNews(event) {
     const newSite = this.state.selectedSource.value;
-    const sort = e.target.value;
+    const sort = event.target.value;
     NewsActions.getNews(newSite, sort);
   }
   handleSourceChange() {
@@ -66,11 +66,11 @@ export default class Search extends React.Component {
             <Select
               name="form-field-name"
               options={options}
-              //value={this.state.selectedSource}
+              value={this.state.selectedSource}
               onChange={this.setValue}
               clearable={false}
             />
-            <button className="btn btn-info btns" onClick={this.getNews}>Search News</button>
+            <button className="btn btn-info" onClick={this.getNews}>Load News</button>
             <div>
               <select className="form-control" onChange={this.getNews}>{sortOption}</select>
             </div>
@@ -78,7 +78,6 @@ export default class Search extends React.Component {
         </div>
 
             <Newsfeeds
-              articles={this.state.articles}
               sourceName={this.state.selectedSource.label}
             />
       </div>

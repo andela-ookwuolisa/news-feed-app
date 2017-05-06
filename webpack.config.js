@@ -12,7 +12,7 @@ module.exports = {
       Main: path.resolve(__dirname, 'app/components/Main.jsx'),
       Nav: path.resolve(__dirname, 'app/components/Nav.jsx'),
       News: path.resolve(__dirname, 'app/components/News.jsx'),
-      About: path.resolve(__dirname, 'app/components/About.jsx'),
+      Footer: path.resolve(__dirname, 'app/components/Footer.jsx'),
       Search: path.resolve(__dirname, 'app/components/Search.jsx'),
       Newsfeeds: path.resolve(__dirname, 'app/components/Newsfeeds.jsx'),
       API: path.resolve(__dirname, 'app/api/API.js'),

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 import Main from './components/Main';
 import Search from 'Search';
-import About from 'About';
+import Footer from './components/Footer';
 import Login from 'Login';
 import Logout from './components/Logout';
 import '../public/index.scss';
@@ -33,7 +33,6 @@ function checkAuth(nextState, replace) {
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main} onEnter={requireAuth}>
-      <Route path="about" component={About} />
       <IndexRoute component={Search} />
 
     </Route>
