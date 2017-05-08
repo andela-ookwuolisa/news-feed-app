@@ -77,9 +77,9 @@ export default class Search extends React.Component {
           </div>
         </div>
 
-            <Newsfeeds
-              sourceName={this.state.selectedSource.label}
-            />
+        <Newsfeeds
+          sourceName={this.state.selectedSource.label}
+        />
       </div>
     );
   }

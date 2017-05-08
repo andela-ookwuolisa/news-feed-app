@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
+import expect from 'expect';
 import Nav from '../components/Nav';
-
-jest.dontMock('../components/Nav');
 
 
 describe('Test nav component', () => {
@@ -15,5 +14,10 @@ describe('Test nav component', () => {
     const wrapper = shallow(<Nav />);
     expect(wrapper.props().className).toBe('navbar navbar-inverse');
   });
+
+  it('it should contain a link to the logout page', () => {
+      const wrapper = shallow(<Nav />);
+      expect(wrapper.find('Link')).toExist
+    })
 
 });
