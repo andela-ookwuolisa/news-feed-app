@@ -35,7 +35,6 @@ export default class Newsfeed extends React.Component {
             <img src={article.urlToImage} alt="" />
             <div className="caption">
               <a href={article.url}> <h4>{article.title}</h4> </a>
-             
               <small>Date/Time:{article.publishedAt} </small>
               <p>{article.description}<a href={article.url}> Read more...</a></p>
             </div>

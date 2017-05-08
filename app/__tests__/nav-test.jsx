@@ -16,8 +16,7 @@ describe('Test nav component', () => {
   });
 
   it('it should contain a link to the logout page', () => {
-      const wrapper = shallow(<Nav />);
-      expect(wrapper.find('Link')).toExist
-    })
-
+    const wrapper = shallow(<Nav />);
+    expect(wrapper.find('Link')).toExist;
+  });
 });

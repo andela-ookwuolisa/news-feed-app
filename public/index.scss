@@ -1,6 +1,6 @@
 $bg-color:#fefdf8;
 $bar-color:#9e012c;
-
+$font-color: #17b2e0;
 .login-page{
     background-image: url("/img/bg.jpg");
     background-size: cover;
@@ -46,7 +46,7 @@ body{
     font-family: 'Playfair Display', serif
 }
 .thumbnail:hover{
-    background-color: $bg-color
+    background-color: #f5f0e7
 }
 .thumbnail>img{
     display: block;
@@ -79,7 +79,7 @@ h2{
     margin-bottom: 30px;
 }
 h2, h4{
-    color: #17b2e0
+    color: $font-color
 }
 
 footer{

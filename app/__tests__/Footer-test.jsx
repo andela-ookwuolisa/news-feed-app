@@ -11,8 +11,7 @@ describe('Test footer component', () => {
   });
 
   it('it should contain footerr text', () => {
-      const wrapper = shallow(<Footer />);
-      expect(wrapper.contains('Designed by Obinna Okwuolisa | © 2017')).toBeTruthy();
-    })
-
+    const wrapper = shallow(<Footer />);
+    expect(wrapper.contains('Designed by Obinna Okwuolisa | © 2017')).toBeTruthy();
+  });
 });

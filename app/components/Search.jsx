@@ -4,7 +4,6 @@ import newsStore from '../stores/newsStore';
 import NewsActions from '../actions/newsActions';
 import Newsfeeds from './Newsfeeds';
 
-
 export default class Search extends React.Component {
 
   constructor(props) {

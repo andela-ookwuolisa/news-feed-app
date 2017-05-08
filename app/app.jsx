@@ -8,7 +8,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import '../public/index.scss';
 import'react-select/dist/react-select.css';
-import user from './user/user';
+import user from './userModel/userModel';
 
 function requireAuth(nextState, replace) {
   if (!user.isLogin) {
@@ -24,7 +24,7 @@ function checkAuth(nextState, replace) {
   if (user.isLogin) {
     replace({
       pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
+      state: { nextPathname: nextState.location.pathname },
 
     });
   }
