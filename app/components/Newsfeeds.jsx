@@ -6,10 +6,7 @@ export default class Newsfeed extends React.Component {
   constructor(props) {
     super(props);
     this.handleArticleChange = this.handleArticleChange.bind(this);
-    this.state = {
-      articles: [],
-      sourceName: '',
-    };
+    this.state = { articles: [], sourceName: '' };
   }
 
   componentDidMount() {

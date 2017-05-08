@@ -8,20 +8,6 @@ module.exports = {
     filename: './public/bundle.js',
   },
   resolve: {
-    alias: {
-      Main: path.resolve(__dirname, 'app/components/Main.jsx'),
-      Nav: path.resolve(__dirname, 'app/components/Nav.jsx'),
-      News: path.resolve(__dirname, 'app/components/News.jsx'),
-      Footer: path.resolve(__dirname, 'app/components/Footer.jsx'),
-      Search: path.resolve(__dirname, 'app/components/Search.jsx'),
-      Newsfeeds: path.resolve(__dirname, 'app/components/Newsfeeds.jsx'),
-      API: path.resolve(__dirname, 'app/api/API.js'),
-      Login: path.resolve(__dirname, 'app/components/Login.jsx'),
-      Logout: path.resolve(__dirname, 'app/components/Logout.js'),
-      Dispatcher: path.resolve(__dirname, 'app/dispatcher/newsDispatcher.js'),
-      NewsActions: path.resolve(__dirname, 'app/actions/newsActions.js'),
-      NewsStore: path.resolve(__dirname, 'app/stores/newsStore.js'),
-    },
     extensions: ['.js', '.jsx'],
   },
   module: {
