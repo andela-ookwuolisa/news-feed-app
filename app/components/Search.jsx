@@ -4,7 +4,12 @@ import newsStore from '../stores/newsStore';
 import NewsActions from '../actions/newsActions';
 import Newsfeeds from './Newsfeeds';
 
+
 export default class Search extends React.Component {
+  /**
+   * 
+   * @param {*} props 
+   */
 
   constructor(props) {
     super(props);
@@ -27,6 +32,10 @@ export default class Search extends React.Component {
   componentWillUnmount() {
     newsStore.removeChangeListener(this.handleSourceChange);
   }
+  /**
+   * 
+   * @param {*} source 
+   */
 
   setValue(source) {
     this.setState({

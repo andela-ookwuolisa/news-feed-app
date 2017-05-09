@@ -34,7 +34,6 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main} onEnter={requireAuth}>
       <IndexRoute component={Search} />
-
     </Route>
     <Route path="login" component={Login} onEnter={checkAuth} />
     <Route path="logout" component={Logout} />

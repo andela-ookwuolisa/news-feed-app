@@ -35,7 +35,8 @@ export default class Login extends React.Component {
             <GoogleLogin
               clientId="460538549894-1an8hpmun7pnjp0ub2mvsjl8t4t8svo2.apps.googleusercontent.com"
               onSuccess={responseGoogle}
-              onFailure={responseGoogle}>
+              onFailure={responseGoogle}
+            >
               <img
                 src="http://3.bp.blogspot.com/-Ep_sMHCGb-M/Vl9h5smpeaI/AAAAAAAACak/MQF7WdfmBgI/s640/image00.png"
                 alt="google login"

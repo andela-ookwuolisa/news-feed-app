@@ -13,7 +13,8 @@ const NewsActions = {
   },
 
   getNews(newsSite, sort) {
-    const requestURL = `https://newsapi.org/v1/articles?source=${newsSite}&sortBy=${sort}&apiKey=213327409d384371851777e7c7f78dfe`;
+    const API = '213327409d384371851777e7c7f78dfe';
+    const requestURL = `https://newsapi.org/v1/articles?source=${newsSite}&sortBy=${sort}&apiKey=${API}`;
     return axios.get(requestURL).then((res) => {
       dispatcher.dispatch({
         type: 'GET_NEWS',
