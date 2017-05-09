@@ -21,6 +21,7 @@ export default class Search extends React.Component {
   componentDidMount() {
     NewsActions.displaySource();
     newsStore.addChangeListener(this.handleSourceChange);
+     NewsActions.getNews('cnn', 'top');
   }
 
   componentWillUnmount() {
@@ -75,10 +76,7 @@ export default class Search extends React.Component {
             </div>
           </div>
         </div>
-
-        <Newsfeeds
-          sourceName={this.state.selectedSource.label}
-        />
+        <Newsfeeds sourceName={this.state.selectedSource.label} />
       </div>
     );
   }
