@@ -6,14 +6,28 @@ import user from '../userModel/userModel';
 const history = createHistory({
   forceRefresh: true,
 });
-
+/**
+ * log in Component
+ * signs the user in
+ * @class Login
+ * @extends {Component}
+ */
 export default class Login extends React.Component {
+   /**
+   * before component mounts
+   * @memberof login
+   * @return {undefined}
+   */
   componentWillMount() {
     if (user.isLogin) {
       history.push('/');
       window.location.reload();
     }
   }
+  /**
+   * @returns {*} render google login
+   * @memberof Login
+   */
 
   render() {
     const responseGoogle = (reply) => {

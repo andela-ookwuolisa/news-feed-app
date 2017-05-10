@@ -4,11 +4,15 @@ import newsStore from '../stores/newsStore';
 import NewsActions from '../actions/newsActions';
 import Newsfeeds from './Newsfeeds';
 
-
+ /**
+ * @class Search
+ * @extends {React.Component}
+ */
 export default class Search extends React.Component {
   /**
-   * 
-   * @param {*} props 
+   * Creates an instance of Search.
+   * @param {any} props
+   * @memberof Newsfeed
    */
 
   constructor(props) {
@@ -22,6 +26,11 @@ export default class Search extends React.Component {
     this.setValue = this.setValue.bind(this);
     this.handleSourceChange = this.handleSourceChange.bind(this);
   }
+  /**
+   * runs befor the component mounts
+   * @memberof Search
+   * @returns {null} returns no value
+   */
 
   componentDidMount() {
     NewsActions.displaySource();
@@ -33,8 +42,9 @@ export default class Search extends React.Component {
     newsStore.removeChangeListener(this.handleSourceChange);
   }
   /**
-   * 
-   * @param {*} source 
+   * sets the state of the Search component
+   * @memberof Search
+   * @returns {null}
    */
 
   setValue(source) {
@@ -42,17 +52,32 @@ export default class Search extends React.Component {
       selectedSource: source,
     });
   }
+  /**
+   * calls getNews from NewsActions component
+   * @memberof Search
+   * @returns {null}
+   */
   getNews(event) {
     const newSite = this.state.selectedSource.value;
     const sort = event.target.value;
     NewsActions.getNews(newSite, sort);
   }
+  /**
+   * sets the state of the Search component
+   * @memberof Search
+   * @returns {null}
+   */
   handleSourceChange() {
     this.setState({
       sources: newsStore.displaySource(),
 
     });
   }
+  /**
+   * renders the react component
+   * @memberof Search
+   * @returns {*} returns all element
+   */
   render() {
     const options = this.state.sources.map((source) => {
       return ({
