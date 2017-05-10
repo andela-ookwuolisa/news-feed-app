@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 import expect from 'expect';
 import Search from '../components/Search';
 
-
+/*eslint-disable*/
 describe('Test search component', () => {
   it('should have a search componenet', () => {
     const wrapper = shallow(<Search />);

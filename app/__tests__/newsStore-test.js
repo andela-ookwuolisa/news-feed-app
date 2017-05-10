@@ -8,7 +8,7 @@ let data = {
 };
 
 jest.mock('../dispatcher/newsDispatcher');
-//jest.dontMock('../stores/newsStore');
+// jest.dontMock('../stores/newsStore');
 jest.dontMock('object-assign')
 
   const getNewsObj = {
