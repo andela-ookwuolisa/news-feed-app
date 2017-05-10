@@ -1,11 +1,22 @@
 import React, {Component} from 'react';
 import createHistory from 'history/createBrowserHistory';
-import user from '../user/user';
+import user from '../userModel/userModel';
 
 const history = createHistory({
   forceRefresh: true,
 });
+/**
+ * sign out Component
+ * @class Logout
+ * @extends {Component}
+ */
 class Logout extends Component {
+  /**
+   *before Component mounts
+   *logs the user out
+   * @memberof Logout
+   * @returns {null}
+   */
   componentWillMount() {
     if (user.isLogin) {
       user.logOut();

@@ -4,8 +4,16 @@ import newsStore from '../stores/newsStore';
 import NewsActions from '../actions/newsActions';
 import Newsfeeds from './Newsfeeds';
 
-
+ /**
+ * @class Search
+ * @extends {React.Component}
+ */
 export default class Search extends React.Component {
+  /**
+   * Creates an instance of Search.
+   * @param {any} props
+   * @memberof Newsfeed
+   */
 
   constructor(props) {
     super(props);
@@ -18,32 +26,58 @@ export default class Search extends React.Component {
     this.setValue = this.setValue.bind(this);
     this.handleSourceChange = this.handleSourceChange.bind(this);
   }
+  /**
+   * runs befor the component mounts
+   * @memberof Search
+   * @returns {null} returns no value
+   */
 
   componentDidMount() {
     NewsActions.displaySource();
     newsStore.addChangeListener(this.handleSourceChange);
+     NewsActions.getNews('cnn', 'top');
   }
 
   componentWillUnmount() {
     newsStore.removeChangeListener(this.handleSourceChange);
   }
+  /**
+   * sets the state of the Search component
+   * @memberof Search
+   * @returns {null}
+   */
 
   setValue(source) {
     this.setState({
       selectedSource: source,
     });
   }
-  getNews(e) {
+  /**
+   * calls getNews from NewsActions component
+   * @memberof Search
+   * @returns {null}
+   */
+  getNews(event) {
     const newSite = this.state.selectedSource.value;
-    const sort = e.target.value;
+    const sort = event.target.value;
     NewsActions.getNews(newSite, sort);
   }
+  /**
+   * sets the state of the Search component
+   * @memberof Search
+   * @returns {null}
+   */
   handleSourceChange() {
     this.setState({
       sources: newsStore.displaySource(),
 
     });
   }
+  /**
+   * renders the react component
+   * @memberof Search
+   * @returns {*} returns all element
+   */
   render() {
     const options = this.state.sources.map((source) => {
       return ({
@@ -66,21 +100,17 @@ export default class Search extends React.Component {
             <Select
               name="form-field-name"
               options={options}
-              //value={this.state.selectedSource}
+              value={this.state.selectedSource}
               onChange={this.setValue}
               clearable={false}
             />
-            <button className="btn btn-info btns" onClick={this.getNews}>Search News</button>
+            <button className="btn btn-info" onClick={this.getNews}>Load News</button>
             <div>
               <select className="form-control" onChange={this.getNews}>{sortOption}</select>
             </div>
           </div>
         </div>
-
-            <Newsfeeds
-              articles={this.state.articles}
-              sourceName={this.state.selectedSource.label}
-            />
+        <Newsfeeds sourceName={this.state.selectedSource.label} />
       </div>
     );
   }

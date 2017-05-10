@@ -3,3 +3,4 @@ package.json
 coverage
 .gitignore
 npm-debug.log
+public/bundle.js

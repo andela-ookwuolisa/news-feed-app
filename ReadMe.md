@@ -2,6 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/andela-ookwuolisa/news-feed-app/badge.svg?branch=develop)](https://coveralls.io/github/andela-ookwuolisa/news-feed-app?branch=develop)
 
+[![Code Climate](https://codeclimate.com/github/andela-ookwuolisa/news-feed-app/badges/gpa.svg)](https://codeclimate.com/github/andela-ookwuolisa/news-feed-app)
 ----
 ## Description
 

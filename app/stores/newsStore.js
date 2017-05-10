@@ -6,8 +6,14 @@ const CHANGE_EVENT = 'change';
 
 let _articles = [];
 let _sources = [];
+/**
+ * NewsStore updates the news component
+ */
 
 const NewsStore = assign({}, EventEmitter.prototype, {
+  /**
+   * addChangeListener
+   */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },

@@ -23,9 +23,6 @@ export default () => {
             <li>
               <IndexLink to="/" > Home <span className="sr-only">(current)</span> </IndexLink>
             </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
