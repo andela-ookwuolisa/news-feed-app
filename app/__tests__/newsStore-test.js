@@ -33,8 +33,19 @@ jest.dontMock('object-assign')
     const count = newsStore.displaySource().length;
     expect(count).toBe(0);
   });
-    xit('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
-    const spyStore = jest.spyOn(newsStore, 'emitChange');
-    callback(getNewsObj);
+
+  it('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
+    const spyStore = jest.spyOn(newstore, 'handleAction');
+    
     expect(spyStore).toHaveBeenCalled();
   });
+
+
+
+
+
+  //   xit('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
+  //   const spyStore = jest.spyOn(newsStore, 'emitChange');
+  //   callback(getNewsObj);
+  //   expect(spyStore).toHaveBeenCalled();
+  // });

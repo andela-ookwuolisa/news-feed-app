@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // create our app
-let app = express();
+const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static('public'));

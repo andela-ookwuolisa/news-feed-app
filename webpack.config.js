@@ -1,4 +1,10 @@
+require('dotenv').config();
+const webpack = require('webpack');
 const path = require('path');
+
+const envsDefinePlugin = new webpack.DefinePlugin({
+  'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+});
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -26,6 +32,9 @@ module.exports = {
     ],
 
   },
+  plugins: [
+    envsDefinePlugin,
+  ],
 
 };
 

@@ -30,7 +30,8 @@
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
     "react-router": "^2.0.0",
-    "react-select": "^1.0.0-rc.3"
+    "react-select": "^1.0.0-rc.3",
+    "webpack": "^2.3.3"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
@@ -51,7 +52,6 @@
     "node-sass": "^4.5.2",
     "react-test-renderer": "^15.5.4",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.16.1",
-    "webpack": "^2.3.3"
+    "style-loader": "^0.16.1"
   }
 }
