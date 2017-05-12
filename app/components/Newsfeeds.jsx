@@ -43,15 +43,11 @@ export default class Newsfeed extends React.Component {
       sourceName: this.props.sourceName,
     });
   }
-  /**
-   * renders the react component
-   * @memberof Newsfeed
-   * @returns {*} returns all element
-   */
-  render() {
-    let story;
-    const allArticles = this.state.articles.map((article) => {
-      if(article.description) {
+
+allArticles() {
+  let story;
+    return this.state.articles.map((article, index) => {
+    if(article.description) {
       story = article.description.split(' ');
       story = story.slice(0, 20);
       story = story.join(' ');
@@ -60,23 +56,31 @@ export default class Newsfeed extends React.Component {
       story = '';
     }
 
-      return (
-        <div key={article.url} className="col-md-4 col-sm-6">
-          <div className="thumbnail" href={article.url}>
-            <img src={article.urlToImage} alt="" />
-            <div className="caption">
-              <a href={article.url}> <h4>{article.title}</h4> </a>
-              <small>Date/Time:{article.publishedAt} </small>
-              <p>{story}<a href={article.url}> ...Read more</a></p>
-            </div>
+    return (
+      <div key={index} className="col-md-4 col-sm-6">
+        <div className="thumbnail" href={article.url}>
+          <img src={article.urlToImage} alt="" />
+          <div className="caption">
+            <a href={article.url}> <h4>{article.title}</h4> </a>
+            <small>Date/Time:{article.publishedAt} </small>
+            <p>{story}<a href={article.url}> ...Read more</a></p>
           </div>
         </div>
-      );
-    });
+      </div>
+    );
+  });
+}
+
+  /**
+   * renders the react component
+   * @memberof Newsfeed
+   * @returns {*} returns all element
+   */
+  render() {
     return (
       <div >
         <h2 className="text-center">{this.state.sourceName}</h2>
-        <div>{allArticles}</div>
+        <div>{this.allArticles()}</div>
 
       </div>
     );

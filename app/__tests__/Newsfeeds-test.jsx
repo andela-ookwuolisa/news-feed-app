@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import sinon from 'sinon';
-//import expect from 'expect';
+import expect from 'expect';
 import Newsfeed from '../components/Newsfeeds';
 
 /*eslint-disable*/
@@ -52,12 +52,26 @@ describe('Test Newsfeeds component', () => {
 
   });
 
-
-
-
-
-  xit('it initializes with an array for newsFeeds', () => {
+  it('it initializes with an array for newsFeeds', () => {
     const wrapper = mount(<Newsfeed />);
     expect(wrapper.node.state.articles).toBeAn('array');
   });
+
+});
+describe('Test Newsfeeds component', () => {
+  const data = [{
+  title: 'Attempted suicide on Facebook Live has a happy ending',
+  description: 'Facebook Live, for all its problems, may have just saved a girl',},
+{
+  title: 'Nigeria',
+  description: 'Nigeria is a hub of uncutivated talents',
+}];
+it('allArticles', () => {
+    sinon.spy(Newsfeed.prototype, 'allArticles');
+    const wrapper = mount(<Newsfeed />);
+    wrapper.setState({ articles: data })
+    expect(Newsfeed.prototype.allArticles).toExist;
+  });
+
+
 });
