@@ -17,7 +17,7 @@ const getNewsObj = {
       title: 'Attempted suicide on Facebook Live has a happy ending',
       description: 'Facebook Live, for all its problems, may have just saved a girl',
     },
-  };
+};
 
 let callback;
 

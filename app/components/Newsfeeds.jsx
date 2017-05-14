@@ -1,5 +1,7 @@
 import React from 'react';
+import propType from 'prop-types';
 import newsStore from '../stores/newsStore';
+
 /**
  * @class Newsfeed
  * @extends {React.Component}
@@ -43,33 +45,36 @@ export default class Newsfeed extends React.Component {
       sourceName: this.props.sourceName,
     });
   }
+  /**
+   * iterates through the articles and returns a title, description and image.
+   * @memberof Newsfeed
+   * @returns {object} jsx object
+   */
+  newsArticles() {
+    let story;
+    // this functions ensures that the article descrooption are not more than 30 words.
+    return this.state.articles.map((article) => {
+      if (article.description) {
+        story = article.description.split(' ');
+        story = story.slice(0, 30);
+        story = story.join(' ');
+      } else {
+        story = '';
+      }
 
-allArticles() {
-  let story;
-    return this.state.articles.map((article, index) => {
-    if(article.description) {
-      story = article.description.split(' ');
-      story = story.slice(0, 20);
-      story = story.join(' ');
-    }
-    else{
-      story = '';
-    }
-
-    return (
-      <div key={index} className="col-md-4 col-sm-6">
-        <div className="thumbnail" href={article.url}>
-          <img src={article.urlToImage} alt="" />
-          <div className="caption">
-            <a href={article.url}> <h4>{article.title}</h4> </a>
-            <small>Date/Time:{article.publishedAt} </small>
-            <p>{story}<a href={article.url}> ...Read more</a></p>
+      return (
+        <div key={`articles${article.title}`} className="col-md-4 col-sm-6">
+          <div className="thumbnail" href={article.url}>
+            <img src={article.urlToImage} alt="" />
+            <div className="caption">
+              <a href={article.url}> <h4>{article.title}</h4> </a>
+              <p>{story}<a href={article.url}> ...Read more</a></p>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  });
-}
+      );
+    });
+  }
 
   /**
    * renders the react component
@@ -80,9 +85,16 @@ allArticles() {
     return (
       <div >
         <h2 className="text-center">{this.state.sourceName}</h2>
-        <div>{this.allArticles()}</div>
+        <div>{this.newsArticles()}</div>
 
       </div>
     );
   }
 }
+
+Newsfeed.propType = {
+  sourceName: propType.string,
+};
+Newsfeed.defaultProps = {
+  sourceName: 'CNN',
+};
