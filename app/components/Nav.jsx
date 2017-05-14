@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
-import user from '../userModel/userModel';
+import User from '../userModel/userModel';
 
 export default () => {
-  let name = user.name.split(' ');
-  name = name.slice(0, 1);
+  let name = User.name;
+  name = name.split(' ');
+  name = name[0];
   return (
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
@@ -24,7 +25,7 @@ export default () => {
         <div className="collapse navbar-collapse" id="collapse-nav">
           <ul className="nav navbar-nav">
             <li>
-              <IndexLink to="/" > Welcome {name} <span className="sr-only">(current)</span> </IndexLink>
+              <IndexLink to="/" > Welcome, {name} <span className="sr-only">(current)</span> </IndexLink>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">

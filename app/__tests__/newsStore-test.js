@@ -1,51 +1,44 @@
+import expect from 'expect';
 import newsStore from '../stores/newsStore';
 import Dispatcher from '../dispatcher/newsDispatcher';
-import expect from 'expect';
 
-let data = {
-  title: 'Attempted suicide on Facebook Live has a happy ending',
-  description: 'Facebook Live, for all its problems, may have just saved a girl',
+/*eslint-disable*/
+jest.mock('../dispatcher/newsDispatcher');
+
+const getNewsObj = {
+  type: 'DISPLAY_NEWS',
+  news: {
+    title: 'Attempted suicide on Facebook Live has a happy ending',
+    description: 'Facebook Live, for all its problems, may have just saved a girl',
+  },
 };
 
-jest.mock('../dispatcher/newsDispatcher');
-// jest.dontMock('../stores/newsStore');
-jest.dontMock('object-assign')
+let callback;
 
-  const getNewsObj = {
-    type: 'DISPLAY_NEWS',
-    news: {
-  title: 'Attempted suicide on Facebook Live has a happy ending',
-  description: 'Facebook Live, for all its problems, may have just saved a girl',
-}
-  };
+beforeEach(() => {
+  callback = Dispatcher.register.mock.calls[0][0];
+});
 
-  let callback;
+test('registers a callback with the dispatcher', () => {
+  expect(Dispatcher.register.mock.calls.length).toBe(1);
+});
 
-  beforeEach(() => {
-    callback = Dispatcher.register.mock.calls[0][0];
-  });
-
-  test('registers a callback with the dispatcher', () => {
-    expect(Dispatcher.register.mock.calls.length).toBe(1);
-  });
-
-   test('initializes with no data', () => {
-    const count = newsStore.displaySource().length;
-    expect(count).toBe(0);
-  });
-
-  it('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
-    const spyStore = jest.spyOn(newstore, 'handleAction');
-    
-    expect(spyStore).toHaveBeenCalled();
-  });
+test('initializes with no data', () => {
+  const count = newsStore.displaySource().length;
+  expect(count).toBe(0);
+});
 
 
+test('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
+  callback(getNewsObj);
+  const count = newsStore.displaySource();
+  const keys = Object.keys(count);
+  expect(keys).toExist();
+});
 
-
-
-  //   xit('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
-  //   const spyStore = jest.spyOn(newsStore, 'emitChange');
-  //   callback(getNewsObj);
-  //   expect(spyStore).toHaveBeenCalled();
-  // });
+test('check if there is an emit change listener method added', () => {
+  expect(newsStore.emitChange).toExist;
+});
+test('check if there is a remove change listener method', () => {
+  expect(newsStore.removeChangeListener).toExist;
+});

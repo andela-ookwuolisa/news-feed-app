@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import expect from 'expect';
 import Nav from '../components/Nav';
 
-
+/*eslint-disable*/
 describe('Test nav component', () => {
   it('the componenet should exist', () => {
     const wrapper = shallow(<Nav />);
