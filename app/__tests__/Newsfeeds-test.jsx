@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import expect from 'expect';
 import Newsfeed from '../components/Newsfeeds';
@@ -14,7 +14,7 @@ describe('Test Newsfeeds component', () => {
   it('contains text-center class for h2 header', () => {
     const wrapper = mount(<Newsfeed />);
     expect(wrapper.find('.text-center')).toExist;
-    expect(wrapper.contains(<h2 className="text-center"></h2>).toExist);
+    expect(wrapper.contains(<h2 className="text-center" > CNN </h2>).toExist);
 
   });
 
@@ -23,6 +23,7 @@ describe('Test Newsfeeds component', () => {
     const wrapper = mount(<Newsfeed />);
     expect(Newsfeed.prototype.componentDidMount.calledOnce).toEqual(true);
   });
+
   it('calls componentWillUnMount', () => {
     const spy = sinon.spy();
 
@@ -58,20 +59,21 @@ describe('Test Newsfeeds component', () => {
   });
 
 });
+
 describe('Test Newsfeeds component', () => {
   const data = [{
-  title: 'Attempted suicide on Facebook Live has a happy ending',
-  description: 'Facebook Live, for all its problems, may have just saved a girl',},
-{
-  title: 'Nigeria',
-  description: 'Nigeria is a hub of uncutivated talents',
-}];
-it('allArticles', () => {
-    sinon.spy(Newsfeed.prototype, 'allArticles');
+    title: 'Attempted suicide on Facebook Live has a happy ending',
+    description: 'Facebook Live, for all its problems, may have just saved a girl',
+  },
+  { title: 'Nigeria',
+    description: 'Nigeria is a hub of uncutivated talents',
+  }];
+
+  it(' newsArticles should exist', () => {
+    sinon.spy(Newsfeed.prototype, 'newsArticles');
     const wrapper = mount(<Newsfeed />);
     wrapper.setState({ articles: data })
     expect(Newsfeed.prototype.allArticles).toExist;
   });
-
 
 });
