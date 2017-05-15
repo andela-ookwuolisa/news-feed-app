@@ -1,5 +1,5 @@
 import expect from 'expect';
-import User from '../userModel/userModel';
+import User from '../userModel/UserModel';
 
 const Response = { w3:
     { ig: 'prime', U3: 'prime@gmail', Paa: 'www.prime.com' }

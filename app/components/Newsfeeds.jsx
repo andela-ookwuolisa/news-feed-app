@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import newsStore from '../stores/newsStore';
+import newsStore from '../stores/NewsStore';
 
 /**
  * @class Newsfeed

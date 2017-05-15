@@ -4,6 +4,7 @@
   "description": "Display news feeds",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/webpack/bin/webpack.js -p",
     "test": "jest --coverage",
     "start": "./node_modules/.bin/nodemon server.js",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"

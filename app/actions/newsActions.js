@@ -1,5 +1,5 @@
 import axios from 'axios';
-import dispatcher from '../dispatcher/newsDispatcher';
+import dispatcher from '../dispatcher/NewsDispatcher';
 
 const NewsActions = {
    /**

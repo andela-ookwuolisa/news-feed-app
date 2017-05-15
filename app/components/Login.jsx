@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import createHistory from 'history/createBrowserHistory';
-import user from '../userModel/userModel';
+import user from '../userModel/UserModel';
 
 const history = createHistory({
   forceRefresh: true,
@@ -46,12 +46,12 @@ export default class Login extends React.Component {
         <div className="button-text">
           <div className="text-center">
             <GoogleLogin
-              clientId="460538549894-1an8hpmun7pnjp0ub2mvsjl8t4t8svo2.apps.googleusercontent.com"
+              clientId={process.env.CLIENT_ID}
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
             >
               <img
-                src="http://3.bp.blogspot.com/-Ep_sMHCGb-M/Vl9h5smpeaI/AAAAAAAACak/MQF7WdfmBgI/s640/image00.png"
+                src="img/login.png"
                 alt="google login"
               />
             </GoogleLogin>

@@ -1,5 +1,5 @@
-import newsActions from '../actions/newsActions';
-import Dispatcher from '../dispatcher/newsDispatcher';
+import newsActions from '../actions/NewsActions';
+import Dispatcher from '../dispatcher/NewsDispatcher';
 
 describe('NewsAction', () => {
   let spy;
