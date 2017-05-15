@@ -28,7 +28,6 @@ export default class Login extends React.Component {
    * @returns {*} render google login
    * @memberof Login
    */
-
   render() {
     const responseGoogle = (reply) => {
       user.login(reply);
@@ -41,7 +40,7 @@ export default class Login extends React.Component {
           <h1 className="login-header">Welcome to News Hub</h1>
         </div>
         <div className="text-center">
-          <p className="login-text"> View news headlines from over 70 Sources </p>
+          <p className="login-text"> View headlines from over 70 Sources </p>
         </div>
 
         <div className="button-text">

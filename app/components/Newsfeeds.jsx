@@ -1,5 +1,5 @@
 import React from 'react';
-import propType from 'prop-types';
+import PropTypes from 'prop-types';
 import newsStore from '../stores/newsStore';
 
 /**
@@ -37,7 +37,7 @@ export default class Newsfeed extends React.Component {
   /**
    * sets the state of the Newsfeed component
    * @memberof Newsfeed
-   * @returns {null}
+   * @returns {null} returns nothing
    */
   handleArticleChange() {
     this.setState({
@@ -52,7 +52,6 @@ export default class Newsfeed extends React.Component {
    */
   newsArticles() {
     let story;
-    // this functions ensures that the article descrooption are not more than 30 words.
     return this.state.articles.map((article) => {
       if (article.description) {
         story = article.description.split(' ');
@@ -64,11 +63,20 @@ export default class Newsfeed extends React.Component {
 
       return (
         <div key={`articles${article.title}`} className="col-md-4 col-sm-6">
-          <div className="thumbnail" href={article.url}>
+          <div className="thumbnail">
             <img src={article.urlToImage} alt="" />
             <div className="caption">
-              <a href={article.url}> <h4>{article.title}</h4> </a>
-              <p>{story}<a href={article.url}> ...Read more</a></p>
+              <a
+                href={article.url} target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h4>{article.title}</h4>
+              </a>
+              <p>{story}
+                <a href={article.url} target="_blank"rel="noopener noreferrer">
+                  ...Read more
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -92,8 +100,8 @@ export default class Newsfeed extends React.Component {
   }
 }
 
-Newsfeed.propType = {
-  sourceName: propType.string,
+Newsfeed.propTypes = {
+  sourceName: PropTypes.string,
 };
 Newsfeed.defaultProps = {
   sourceName: 'CNN',

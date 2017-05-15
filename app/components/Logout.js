@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import { Component } from 'react';
 import createHistory from 'history/createBrowserHistory';
 import user from '../userModel/userModel';
 
@@ -15,7 +15,7 @@ class Logout extends Component {
    *before Component mounts
    *logs the user out
    * @memberof Logout
-   * @returns {null}
+   * @returns {null} returns nothing
    */
   componentWillMount() {
     if (user.isLogin) {

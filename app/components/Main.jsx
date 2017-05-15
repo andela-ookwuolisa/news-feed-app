@@ -1,13 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Nav from '../components/Nav';
 import Footer from './Footer';
 
-export default ({children }) => {
-  return (
-    <div>
-      <Nav />
-      {children}
-      <Footer />
-    </div>
+const Main = ({ children }) => (
+  <div>
+    <Nav />
+    {children}
+    <Footer />
+  </div>
   );
+Main.propTypes = {
+  children: PropTypes.element,
 };
+Main.defaultProps = {
+  children: null,
+};
+export default Main;

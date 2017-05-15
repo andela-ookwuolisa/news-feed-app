@@ -14,7 +14,6 @@ export default class Search extends React.Component {
    * @param {any} props
    * @memberof Newsfeed
    */
-
   constructor(props) {
     super(props);
     this.state = {
@@ -31,22 +30,25 @@ export default class Search extends React.Component {
    * @memberof Search
    * @returns {null} returns no value
    */
-
   componentDidMount() {
     NewsActions.displaySource();
     newsStore.addChangeListener(this.handleSourceChange);
     NewsActions.getNews('cnn', 'top');
   }
-
+  /**
+   * runs befor the component mounts
+   * @memberof Search
+   * @returns {null} returns no value
+   */
   componentWillUnmount() {
     newsStore.removeChangeListener(this.handleSourceChange);
   }
   /**
    * sets the state of the Search component
+   * @param {string} source for the news is passed as the input
    * @memberof Search
-   * @returns {null}
+   * @returns {null} returns nothing
    */
-
   setValue(source) {
     this.setState({
       selectedSource: source,
@@ -55,7 +57,8 @@ export default class Search extends React.Component {
   /**
    * calls getNews from NewsActions component
    * @memberof Search
-   * @returns {null}
+   * @param {event} event selects the news site
+   * @returns {null} returns nothing
    */
   getNews(event) {
     const newSite = this.state.selectedSource.value;
@@ -65,7 +68,7 @@ export default class Search extends React.Component {
   /**
    * sets the state of the Search component
    * @memberof Search
-   * @returns {null}
+   * @returns {null} returns nothing
    */
   handleSourceChange() {
     this.setState({
@@ -79,13 +82,11 @@ export default class Search extends React.Component {
    * @returns {*} returns all element
    */
   render() {
-    const options = this.state.sources.map((source) => {
-      return ({
-        value: source.id,
-        label: source.name,
-        sort: source.sortBysAvailable,
-      });
-    });
+    const options = this.state.sources.map(source => ({
+      value: source.id,
+      label: source.name,
+      sort: source.sortBysAvailable,
+    }));
     let sortOption = '';
     if (this.state.selectedSource.sort) {
       sortOption = this.state.selectedSource.sort.map(sort =>
@@ -104,9 +105,19 @@ export default class Search extends React.Component {
               onChange={this.setValue}
               clearable={false}
             />
-            <button className="btn btn-info" onClick={this.getNews}>Load News</button>
+            <button
+              className="btn btn-info"
+              onClick={this.getNews}
+            >
+              Load News
+            </button>
             <div>
-              <select className="form-control" onChange={this.getNews}>{sortOption}</select>
+              <select
+                className="form-control"
+                onChange={this.getNews}
+              >
+                {sortOption}
+              </select>
             </div>
           </div>
         </div>

@@ -2,14 +2,13 @@ import expect from 'expect';
 import newsStore from '../stores/newsStore';
 import Dispatcher from '../dispatcher/newsDispatcher';
 
-/*eslint-disable*/
 jest.mock('../dispatcher/newsDispatcher');
 
 const getNewsObj = {
   type: 'DISPLAY_NEWS',
   news: {
     title: 'Attempted suicide on Facebook Live has a happy ending',
-    description: 'Facebook Live, for all its problems, may have just saved a girl',
+    description: 'Facebook Live, for all its problems, may have just saved',
   },
 };
 
@@ -37,8 +36,8 @@ test('should call emitChange when "DISPLAY_NEWS" is dispatched', () => {
 });
 
 test('check if there is an emit change listener method added', () => {
-  expect(newsStore.emitChange).toExist;
+  expect(newsStore.emitChange).toBeTruthy();
 });
 test('check if there is a remove change listener method', () => {
-  expect(newsStore.removeChangeListener).toExist;
+  expect(newsStore.removeChangeListener).toBeTruthy();
 });

@@ -10,7 +10,7 @@ class User {
     this.assignUserValues();
   }
   login(response) {
-    const user= response.w3
+    const user = response.w3;
     Cookies.set('newshub', {
       name: user.ig,
       email: user.U3,

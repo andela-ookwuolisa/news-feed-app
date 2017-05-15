@@ -4,8 +4,8 @@ import dispatcher from '../dispatcher/newsDispatcher';
 
 const CHANGE_EVENT = 'change';
 
-let _articles = [];
-let _sources = [];
+let articles = [];
+let sources = [];
 /**
  * NewsStore updates the news component
  */
@@ -13,6 +13,8 @@ let _sources = [];
 const NewsStore = assign({}, EventEmitter.prototype, {
   /**
    * addChangeListener
+   * @param {function} callback function is passed in.
+   * @return {null} returns nothing
    */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
@@ -24,26 +26,28 @@ const NewsStore = assign({}, EventEmitter.prototype, {
     this.emit(CHANGE_EVENT);
   },
   getNews() {
-    return _articles;
+    return articles;
   },
   displaySource() {
-    return _sources;
+    return sources;
   },
 });
 
-function handleAction(action) {
+const handleAction = (action) => {
   switch (action.type) {
     case 'GET_NEWS':
-      _articles = action.news.articles;
+      articles = action.news.articles;
       NewsStore.emitChange();
       break;
 
     case 'DISPLAY_NEWS':
-      _sources = action.news;
+      sources = action.news;
       NewsStore.emitChange();
       break;
+
+    default:
   }
-}
+};
 
 NewsStore.dispatchToken = dispatcher.register(handleAction);
 
