@@ -1,6 +1,6 @@
 import expect from 'expect';
-import newsStore from '../stores/newsStore';
-import Dispatcher from '../dispatcher/newsDispatcher';
+import newsStore from '../stores/NewsStore';
+import Dispatcher from '../dispatcher/NewsDispatcher';
 
 jest.mock('../dispatcher/newsDispatcher');
 

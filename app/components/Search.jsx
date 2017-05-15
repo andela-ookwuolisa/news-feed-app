@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
-import newsStore from '../stores/newsStore';
-import NewsActions from '../actions/newsActions';
+import newsStore from '../stores/NewsStore';
+import NewsActions from '../actions/NewsActions';
 import Newsfeeds from './Newsfeeds';
 
  /**

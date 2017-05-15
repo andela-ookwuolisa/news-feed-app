@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
-import User from '../userModel/userModel';
+import User from '../userModel/UserModel';
 
 export default () => {
   let name = User.name;

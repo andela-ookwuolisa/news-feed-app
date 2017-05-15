@@ -1,9 +1,10 @@
 require('dotenv').config();
 const webpack = require('webpack');
-const path = require('path');
+require('path');
 
 const envsDefinePlugin = new webpack.DefinePlugin({
   'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+  'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID)
 });
 
 module.exports = {
