@@ -1,5 +1,7 @@
 import expect from 'expect';
 import User from '../userModel/userModel';
+
+/*eslint-disable*/
 let Response = { w3: { ig: 'prime', U3: 'prime@gmail', Paa: 'www.prime.com' } };
 describe ('test for user model',() => {
     it('should exist', () => {
