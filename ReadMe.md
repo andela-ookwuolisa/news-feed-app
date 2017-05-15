@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
 [![Build Status](https://travis-ci.org/andela-ookwuolisa/news-feed-app.svg?branch=develop)](https://travis-ci.org/andela-ookwuolisa/news-feed-app)
 
 [![Coverage Status](https://coveralls.io/repos/github/andela-ookwuolisa/news-feed-app/badge.png?branch=develop)](https://coveralls.io/github/andela-ookwuolisa/news-feed-app?branch=develop)
@@ -72,6 +74,29 @@ If you are interested in contributing to development of News-feed-app, follow th
 - Provide a detailed commit description 
 
 - Create a pull request
+
+## Limitations
+
+- Users can only view news from 70 sources
+- Users can only view a finite amount of artiles per news source.
+- There is no provision to view old articles.
+
+## FAQ
+
+- **What if I want to use another port?**
+
+In the root of the project. create a file named `.env` and add the following line to it:
+
+``` bash
+PORT=<your_desired_port>
+```
+
+where <your\_desired\_port> is the port you want to use. So, if you want to use port `8080`, you will write:
+
+``` bash 
+PORT=8080
+```
+----
 
 
 ## License
