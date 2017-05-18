@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import expect from 'expect';
-import Newsfeed from '../components/Newsfeeds';
+import Newsfeed from '../../components/Newsfeeds';
+import DataMock from '../../__mocks__/DataMock.json';
 
 describe('Test Newsfeeds component', () => {
   it('should have a Newsfeed componenet', () => {
@@ -16,7 +17,7 @@ describe('Test Newsfeeds component', () => {
     expect(wrapper.contains(<h2 className="text-center" > CNN </h2>).toExist);
   });
 
-  it('calls componentDidMount', () => {
+  it('should call componentDidMount', () => {
     sinon.spy(Newsfeed.prototype, 'componentDidMount');
     mount(<Newsfeed />);
     expect(Newsfeed.prototype.componentDidMount.calledOnce).toEqual(true);
@@ -34,19 +35,12 @@ describe('Test Newsfeeds component', () => {
   });
 });
 
-describe('Test Newsfeeds component', () => {
-  const data = [{
-    title: 'Attempted suicide on Facebook Live has a happy ending',
-    description: 'Facebook Live, for all its problems, may have just saved',
-  },
-  { title: 'Nigeria',
-    description: 'Nigeria is a hub of uncutivated talents',
-  }];
-
-  it(' newsArticles should exist', () => {
+describe('Newsfeeds component', () => {
+  it('should set articles state', () => {
     sinon.spy(Newsfeed.prototype, 'newsArticles');
     const wrapper = mount(<Newsfeed />);
-    wrapper.setState({ articles: data });
+    wrapper.setState({ articles: DataMock.data.articles });
     expect(Newsfeed.prototype.newsArticles).toBeTruthy();
+    expect(wrapper.node.state.articles[0].author).toEqual('BBC News');
   });
 });

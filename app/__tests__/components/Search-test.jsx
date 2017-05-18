@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import Search from '../components/Search';
+import Search from '../../components/Search';
+import SourceMock from '../../__mocks__/SourceMock.json';
 
 
 describe('Test search component', () => {
@@ -20,18 +21,17 @@ describe('Test search component', () => {
     expect(wrapper.node.state.sources).toBeAn('array');
   });
 });
+
 describe('Test Search component', () => {
-  const data = [{
-    name: 'CNN News',
-    id: 'cnn', },
-  {
-    name: 'bbc news',
-    description: 'bbc-news',
-  }];
-  it('handleSource change', () => {
+  it('should call handleSourceChange ', () => {
     sinon.spy(Search.prototype, 'handleSourceChange');
     const wrapper = mount(<Search />);
-    wrapper.setState({ sources: data });
+    wrapper.setState({ sources: SourceMock.sources });
     expect(Search.prototype.handleSourceChange).toBeTruthy();
+  });
+  it('should set sources state ', () => {
+    const wrapper = mount(<Search />);
+    wrapper.setState({ sources: SourceMock.sources });
+    expect(wrapper.node.state.sources[0].id).toEqual('abc-news-au');
   });
 });
