@@ -1,10 +1,7 @@
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-
-[![Build Status](https://travis-ci.org/andela-ookwuolisa/news-feed-app.svg?branch=develop)](https://travis-ci.org/andela-ookwuolisa/news-feed-app)
-
-[![Coverage Status](https://coveralls.io/repos/github/andela-ookwuolisa/news-feed-app/badge.png?branch=develop)](https://coveralls.io/github/andela-ookwuolisa/news-feed-app?branch=develop)
-
-[![Code Climate](https://codeclimate.com/github/andela-ookwuolisa/news-feed-app/badges/gpa.svg)](https://codeclimate.com/github/andela-ookwuolisa/news-feed-app)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() 
+[![Build Status](https://travis-ci.org/andela-ookwuolisa/news-feed-app.svg?branch=develop)](https://travis-ci.org/andela-ookwuolisa/news-feed-app) 
+[![Coverage Status](https://coveralls.io/repos/github/andela-ookwuolisa/news-feed-app/badge.png?branch=develop)](https://coveralls.io/github/andela-ookwuolisa/news-feed-app?branch=develop) 
+[![Code Climate](https://codeclimate.com/github/andela-ookwuolisa/news-feed-app/badges/gpa.svg)](https://codeclimate.com/github/andela-ookwuolisa/news-feed-app) 
 ----
 ## Description
 
